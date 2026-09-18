@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Métricas da conta</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+  <style>
+    body { margin: 0; font-family: "IBM Plex Sans", system-ui, sans-serif; background: #F7F6FB; color: #17122A; }
+    a { color: #594797; }
+    a:hover { color: #43356F; }
+    button, select { font-family: inherit; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; height: 920px; box-sizing: border-box; display: flex; background: #F7F6FB; overflow: hidden;">
+
+  <aside style="width: 250px; flex-shrink: 0; background: #1A1030; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px; padding: 20px 14px;">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 4px 8px;">
+      <img src="/_blob/542fd62e893ea5f673f207d49666722a" alt="Action Media" style="width: 176px; height: auto; display: block;">
+    </div>
+
+    <nav style="display: flex; flex-direction: column; gap: 18px;">
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.14em; color: #7E71A0; padding: 0 10px 6px;">GERAL</span>
+        <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 7.2 8 2.8l5.5 4.4V13a.6.6 0 0 1-.6.6H3.1a.6.6 0 0 1-.6-.6Z"></path></svg>
+          Início
+        </a>
+        <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2.3" y="3.4" width="11.4" height="10.2" rx="1.4"></rect><path d="M2.3 6.6h11.4M5.6 2.2v2.2M10.4 2.2v2.2"></path></svg>
+          Planejamento
+        </a>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.14em; color: #7E71A0; padding: 0 10px 6px;">SOCIAL MEDIA</span>
+        <a href="Gerar.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.2 9.4 6.2 13.4 7.6 9.4 9 8 13 6.6 9 2.6 7.6 6.6 6.2Z"></path></svg>
+          Gerar publicações
+        </a>
+        <a href="Modelos.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2.4" y="2.4" width="11.2" height="7" rx="1.4"></rect><path d="M2.4 12h6.4M2.4 14.2h4"></path></svg>
+          Modelos
+        </a>
+        <a href="Aprovados.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.4" y="2.4" width="11.2" height="11.2" rx="2"></rect><path d="M5.4 8.2 7.4 10.2l3.4-3.8"></path></svg>
+          Aprovadas e agenda
+        </a>
+        <a href="Feed.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2.4" y="2.4" width="4.8" height="4.8" rx="1"></rect><rect x="8.8" y="2.4" width="4.8" height="4.8" rx="1"></rect><rect x="2.4" y="8.8" width="4.8" height="4.8" rx="1"></rect><rect x="8.8" y="8.8" width="4.8" height="4.8" rx="1"></rect></svg>
+          Prévia do feed
+        </a>
+        <a href="Metricas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; background: #2E2560; color: #FFFFFF; font-size: 13.5px; font-weight: 600;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2.6 13.4V9.6M6.2 13.4V4.2M9.8 13.4V7.4M13.4 13.4V2.6"></path></svg>
+          Métricas
+        </a>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.14em; color: #7E71A0; padding: 0 10px 6px;">UGC</span>
+        <a href="Creators.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="6.2" cy="6" r="2.6"></circle><path d="M2.4 13.4c0-2.3 1.7-3.9 3.8-3.9s3.8 1.6 3.8 3.9"></path><path d="M10.8 4.2a2.4 2.4 0 0 1 0 4.4M12 13.4c0-1.3-.3-2.3-.9-3"></path></svg>
+          Descobrir creators
+        </a>
+        <a href="Campanha.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.4 6.6v2.8l8.4 3.2V3.4Z"></path><path d="M10.8 5.4a2.6 2.6 0 0 1 0 5.2M4.6 9.8v2.6a1 1 0 0 0 2 0v-2"></path></svg>
+          Minhas campanhas
+        </a>
+      </div>
+    </nav>
+
+    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px;">
+      <a href="SejaCreator.dc.html" style="display: flex; align-items: center; gap: 9px; min-height: 44px; box-sizing: border-box; padding: 0 12px; border-radius: 9px; border: 1px solid #3B2A60; text-decoration: none; color: #DCD2EE; font-size: 12.5px; font-weight: 500;">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.2 3.2H3.4a1 1 0 0 0-1 1v8.2a1 1 0 0 0 1 1h8.2a1 1 0 0 0 1-1V9.8M9.4 2.6h4v4M13.4 2.6 7.8 8.2"></path></svg>
+        Portal do creator
+      </a>
+      <div style="display: flex; align-items: center; gap: 10px; padding: 8px; border-top: 1px solid #2B1E4A;">
+        <span style="width: 32px; height: 32px; border-radius: 99px; background: #43357A; color: #DFD7F0; display: flex; align-items: center; justify-content: center; font-family: Archivo, sans-serif; font-weight: 700; font-size: 12.5px;">AC</span>
+        <span style="display: flex; flex-direction: column; flex-grow: 1;">
+          <span style="font-size: 12.5px; font-weight: 600; color: #FFFFFF;">Aurora Calçados</span>
+          <span style="font-size: 11px; color: #9689B5;">Plano Completo</span>
+        </span>
+      </div>
+    </div>
+  </aside>
+
+  <main style="flex-grow: 1; display: flex; flex-direction: column; min-width: 0;">
+
+    <header style="height: 70px; flex-shrink: 0; box-sizing: border-box; border-bottom: 1px solid #E3DEEF; background: #FFFFFF; display: flex; align-items: center; gap: 16px; padding: 0 28px;">
+      <span style="display: flex; flex-direction: column; flex-grow: 1;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; color: #6E6488;">INSTAGRAM E FACEBOOK · COMPARADO COM OS 30 DIAS ANTERIORES</span>
+        <span style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.02em;">Métricas</span>
+      </span>
+      <label for="periodo" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%);">Período</label>
+      <select id="periodo" style="min-height: 44px; box-sizing: border-box; border: 1px solid #D5CFE7; border-radius: 9px; padding: 0 12px; font-size: 13px; color: #17122A; background: #FFFFFF;">
+        <option>Últimos 30 dias</option>
+        <option>Últimos 7 dias</option>
+        <option>Este ano</option>
+      </select>
+      <button style="min-height: 44px; box-sizing: border-box; padding: 0 16px; border-radius: 9px; border: 1px solid #D5CFE7; background: #FFFFFF; color: #17122A; font-size: 13.5px; font-weight: 600; cursor: pointer;">Exportar relatório</button>
+    </header>
+
+    <div style="flex-grow: 1; box-sizing: border-box; padding: 22px 28px; display: flex; flex-direction: column; gap: 16px; min-height: 0;">
+
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px;">
+        <sc-for list="{{kpis}}" as="k" hint-placeholder-count="4">
+          <div style="background: #FFFFFF; border: 1px solid #E3DEEF; border-radius: 12px; padding: 15px 18px; display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: 12.5px; color: #574C74;">{{k.nome}}</span>
+            <span style="display: flex; align-items: baseline; gap: 9px;">
+              <span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 26px; letter-spacing: -0.03em;">{{k.valor}}</span>
+              <span style="display: flex; align-items: center; gap: 3px; font-size: 12.5px; font-weight: 600; color: #0D6B45;">
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12.6V3.8M4.4 7.4 8 3.8l3.6 3.6"></path></svg>
+                {{k.delta}}
+              </span>
+            </span>
+            <span style="font-size: 11.5px; color: #6E6488;">{{k.base}}</span>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display: flex; gap: 16px;">
+
+        <section style="flex-grow: 1; background: #FFFFFF; border: 1px solid #E3DEEF; border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; gap: 4px; min-width: 0;">
+          <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 15px;">Alcance por semana</h2>
+          <p style="margin: 0 0 6px; font-size: 12.5px; color: #6E6488;">Oito semanas. A virada é a semana em que a plataforma passou a montar o calendário.</p>
+          <svg viewBox="0 0 700 250" style="display: block; width: 100%; height: auto;" role="img" aria-label="Gráfico de colunas do alcance semanal: sobe de 12,1 mil na semana de 28 de julho para 24,3 mil na semana de 15 de setembro, com crescimento contínuo a partir da semana de 25 de agosto.">
+            <line x1="56" x2="690" y1="210" y2="210" stroke="#D5CFE7" stroke-width="1"></line>
+            <line x1="56" x2="690" y1="136.9" y2="136.9" stroke="#EEEAF6" stroke-width="1"></line>
+            <line x1="56" x2="690" y1="63.8" y2="63.8" stroke="#EEEAF6" stroke-width="1"></line>
+            <text x="46" y="214" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="#6E6488">0</text>
+            <text x="46" y="141" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="#6E6488">10 mil</text>
+            <text x="46" y="68" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="#6E6488">20 mil</text>
+
+            <path d="M73.6 210 L73.6 125.6 Q73.6 121.6 77.6 121.6 L113.6 121.6 Q117.6 121.6 117.6 125.6 L117.6 210 Z" fill="#594797"></path>
+            <path d="M152.9 210 L152.9 105.8 Q152.9 101.8 156.9 101.8 L192.9 101.8 Q196.9 101.8 196.9 105.8 L196.9 210 Z" fill="#594797"></path>
+            <path d="M232.1 210 L232.1 117.5 Q232.1 113.5 236.1 113.5 L272.1 113.5 Q276.1 113.5 276.1 117.5 L276.1 210 Z" fill="#594797"></path>
+            <path d="M311.4 210 L311.4 90.5 Q311.4 86.5 315.4 86.5 L351.4 86.5 Q355.4 86.5 355.4 90.5 L355.4 210 Z" fill="#594797"></path>
+            <path d="M390.6 210 L390.6 101.5 Q390.6 97.5 394.6 97.5 L430.6 97.5 Q434.6 97.5 434.6 101.5 L434.6 210 Z" fill="#594797"></path>
+            <path d="M469.9 210 L469.9 73.7 Q469.9 69.7 473.9 69.7 L509.9 69.7 Q513.9 69.7 513.9 73.7 L513.9 210 Z" fill="#594797"></path>
+            <path d="M549.1 210 L549.1 56.2 Q549.1 52.2 553.1 52.2 L589.1 52.2 Q593.1 52.2 593.1 56.2 L593.1 210 Z" fill="#594797"></path>
+            <path d="M628.4 210 L628.4 36.4 Q628.4 32.4 632.4 32.4 L668.4 32.4 Q672.4 32.4 672.4 36.4 L672.4 210 Z" fill="#594797"></path>
+
+            <text x="95.6" y="113" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12" font-weight="700" fill="#17122A">12,1 mil</text>
+            <text x="650.4" y="24" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12" font-weight="700" fill="#17122A">24,3 mil</text>
+
+            <text x="95.6" y="230" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#6E6488">28/07</text>
+            <text x="174.9" y="230" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#6E6488">04/08</text>
+            <text x="254.1" y="230" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#6E6488">11/08</text>
+            <text x="333.4" y="230" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#6E6488">18/08</text>
+            <text x="412.6" y="230" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#6E6488">25/08</text>
+            <text x="491.9" y="230" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#6E6488">01/09</text>
+            <text x="571.1" y="230" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#6E6488">08/09</text>
+            <text x="650.4" y="230" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#6E6488">15/09</text>
+          </svg>
+        </section>
+
+        <section style="width: 352px; flex-shrink: 0; background: #FFFFFF; border: 1px solid #E3DEEF; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 12px;">
+          <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 15px;">O que mais performou</h2>
+          <sc-for list="{{top}}" as="t" hint-placeholder-count="3">
+            <div style="display: flex; gap: 12px; align-items: center; padding: 10px; border: 1px solid #EAE6F4; border-radius: 11px;">
+              <span style="width: 46px; height: 56px; flex-shrink: 0; border-radius: 7px; border: 1px solid #E3DEEF; background: #E7D7C6; display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 120 64" style="width: 66%; height: auto;" aria-hidden="true"><path d="M14 40C16 26 22 18 34 15c10-3 18-1 24 4l14 12c8 6 20 10 32 12 6 1 8 4 8 7v2c0 2-2 3-4 3H18c-4 0-8-3-8-8Z" fill="#241C17"></path><path d="M11 48h101" stroke="#E7D7C6" stroke-width="3"></path><path d="M34 21l10 6M40 18l10 6M46 16l10 6" stroke="#E7D7C6" stroke-width="2"></path></svg></span>
+              <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0;">
+                <span style="font-size: 13px; font-weight: 600; line-height: 1.35;">{{t.titulo}}</span>
+                <span style="font-size: 11.5px; color: #6E6488;">{{t.origem}}</span>
+                <span style="font-size: 12px; font-weight: 600; color: #594797;">{{t.metrica}}</span>
+              </span>
+            </div>
+          </sc-for>
+        </section>
+      </div>
+
+      <div style="display: flex; gap: 16px; flex-grow: 1; min-height: 0;">
+
+        <section style="width: 432px; flex-shrink: 0; background: #FFFFFF; border: 1px solid #E3DEEF; border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; gap: 13px;">
+          <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 15px;">Salvamentos por post, por formato</h2>
+          <sc-for list="{{formatos}}" as="f" hint-placeholder-count="4">
+            <span style="display: flex; align-items: center; gap: 12px;">
+              <span style="width: 132px; flex-shrink: 0; font-size: 12.5px; color: #574C74;">{{f.nome}}</span>
+              <span style="flex-grow: 1; height: 10px; border-radius: 99px; background: #EEEAF6; overflow: hidden;">
+                <sc-if value="{{f.g4}}" hint-placeholder-val="{{true}}"><span style="display: block; height: 100%; border-radius: 99px; background: #594797; width: 100%;"></span></sc-if>
+                <sc-if value="{{f.g3}}" hint-placeholder-val="{{true}}"><span style="display: block; height: 100%; border-radius: 99px; background: #594797; width: 86%;"></span></sc-if>
+                <sc-if value="{{f.g2}}" hint-placeholder-val="{{true}}"><span style="display: block; height: 100%; border-radius: 99px; background: #594797; width: 54%;"></span></sc-if>
+                <sc-if value="{{f.g1}}" hint-placeholder-val="{{true}}"><span style="display: block; height: 100%; border-radius: 99px; background: #594797; width: 38%;"></span></sc-if>
+              </span>
+              <span style="width: 30px; flex-shrink: 0; text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; font-weight: 600;">{{f.valor}}</span>
+            </span>
+          </sc-for>
+          <div style="margin-top: auto; background: #EFEAF8; border-radius: 10px; padding: 12px 14px;">
+            <p style="margin: 0; font-size: 12.5px; line-height: 1.55; color: #382D63;">Prova social salva quase 3x mais que oferta. O planejamento da próxima semana já vem com dois posts a mais desse formato.</p>
+          </div>
+        </section>
+
+        <section style="flex-grow: 1; background: #FFFFFF; border: 1px solid #E3DEEF; border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; gap: 14px; min-width: 0;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 15px; flex-grow: 1;">Arte de IA x vídeo de creator</h2>
+            <span style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #574C74;"><span style="width: 10px; height: 10px; border-radius: 3px; background: #594797;"></span>arte de IA</span>
+            <span style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #574C74;"><span style="width: 10px; height: 10px; border-radius: 3px; background: #B45309;"></span>vídeo de creator</span>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 9px;">
+            <span style="font-size: 12.5px; color: #574C74;">Alcance médio por post</span>
+            <span style="display: flex; align-items: center; gap: 12px;">
+              <span style="flex-grow: 1; height: 14px; border-radius: 99px; background: #EEEAF6; overflow: hidden;"><span style="display: block; height: 100%; width: 53%; border-radius: 99px; background: #594797;"></span></span>
+              <span style="width: 74px; flex-shrink: 0; text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; font-weight: 600;">4.180</span>
+            </span>
+            <span style="display: flex; align-items: center; gap: 12px;">
+              <span style="flex-grow: 1; height: 14px; border-radius: 99px; background: #EEEAF6; overflow: hidden;"><span style="display: block; height: 100%; width: 100%; border-radius: 99px; background: #B45309;"></span></span>
+              <span style="width: 74px; flex-shrink: 0; text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; font-weight: 600;">7.940</span>
+            </span>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 9px;">
+            <span style="font-size: 12.5px; color: #574C74;">Salvamentos por post</span>
+            <span style="display: flex; align-items: center; gap: 12px;">
+              <span style="flex-grow: 1; height: 14px; border-radius: 99px; background: #EEEAF6; overflow: hidden;"><span style="display: block; height: 100%; width: 45%; border-radius: 99px; background: #594797;"></span></span>
+              <span style="width: 74px; flex-shrink: 0; text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; font-weight: 600;">37</span>
+            </span>
+            <span style="display: flex; align-items: center; gap: 12px;">
+              <span style="flex-grow: 1; height: 14px; border-radius: 99px; background: #EEEAF6; overflow: hidden;"><span style="display: block; height: 100%; width: 100%; border-radius: 99px; background: #B45309;"></span></span>
+              <span style="width: 74px; flex-shrink: 0; text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; font-weight: 600;">83</span>
+            </span>
+          </div>
+
+          <div style="margin-top: auto; background: #17122A; border-radius: 11px; padding: 14px 16px;">
+            <p style="margin: 0; font-size: 12.5px; line-height: 1.6; color: #B5A9CE;">A arte de IA custa centavos e sustenta o volume. O vídeo de creator custa mais e entrega mais. <span style="color: #FFFFFF; font-weight: 600;">Só quem tem os dois módulos consegue mostrar essa conta na mesma tela.</span></p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":920}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      kpis: [
+        { nome: 'Alcance', valor: '84,2 mil', delta: '18%', base: 'contra 71,4 mil no período anterior' },
+        { nome: 'Interações', valor: '6.410', delta: '24%', base: 'contra 5.170 no período anterior' },
+        { nome: 'Salvamentos', valor: '1.208', delta: '61%', base: 'contra 750 no período anterior' },
+        { nome: 'Visitas ao perfil', valor: '3.940', delta: '12%', base: 'contra 3.517 no período anterior' }
+      ],
+      top: [
+        { titulo: 'Calço e ando na rua', origem: 'Vídeo de creator · Marina B.', metrica: '9.120 de alcance · 104 salvos' },
+        { titulo: 'Look completo com mocassim', origem: 'Arte de IA · prova social', metrica: '6.480 de alcance · 71 salvos' },
+        { titulo: 'Chegou tamanho 41', origem: 'Arte de IA · produto', metrica: '5.930 de alcance · 44 salvos' }
+      ],
+      formatos: [
+        { nome: 'Prova social', valor: '96', g4: true, g3: false, g2: false, g1: false },
+        { nome: 'Vídeo de creator', valor: '83', g4: false, g3: true, g2: false, g1: false },
+        { nome: 'Bastidor da loja', valor: '52', g4: false, g3: false, g2: true, g1: false },
+        { nome: 'Oferta e preço', valor: '37', g4: false, g3: false, g2: false, g1: true }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

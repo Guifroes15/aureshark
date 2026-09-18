@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Descobrir creators de UGC</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+  <style>
+    body { margin: 0; font-family: "IBM Plex Sans", system-ui, sans-serif; background: #F7F6FB; color: #17122A; }
+    a { color: #594797; }
+    a:hover { color: #43356F; }
+    button, input, select { font-family: inherit; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; height: 920px; box-sizing: border-box; display: flex; background: #F7F6FB; overflow: hidden;">
+
+  <aside style="width: 250px; flex-shrink: 0; background: #1A1030; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px; padding: 20px 14px;">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 4px 8px;">
+      <img src="/_blob/542fd62e893ea5f673f207d49666722a" alt="Action Media" style="width: 176px; height: auto; display: block;">
+    </div>
+
+    <nav style="display: flex; flex-direction: column; gap: 18px;">
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.14em; color: #7E71A0; padding: 0 10px 6px;">GERAL</span>
+        <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 7.2 8 2.8l5.5 4.4V13a.6.6 0 0 1-.6.6H3.1a.6.6 0 0 1-.6-.6Z"></path></svg>
+          Início
+        </a>
+        <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2.3" y="3.4" width="11.4" height="10.2" rx="1.4"></rect><path d="M2.3 6.6h11.4M5.6 2.2v2.2M10.4 2.2v2.2"></path></svg>
+          Planejamento
+        </a>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.14em; color: #7E71A0; padding: 0 10px 6px;">SOCIAL MEDIA</span>
+        <a href="Gerar.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.2 9.4 6.2 13.4 7.6 9.4 9 8 13 6.6 9 2.6 7.6 6.6 6.2Z"></path></svg>
+          Gerar publicações
+        </a>
+        <a href="Modelos.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2.4" y="2.4" width="11.2" height="7" rx="1.4"></rect><path d="M2.4 12h6.4M2.4 14.2h4"></path></svg>
+          Modelos
+        </a>
+        <a href="Aprovados.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.4" y="2.4" width="11.2" height="11.2" rx="2"></rect><path d="M5.4 8.2 7.4 10.2l3.4-3.8"></path></svg>
+          Aprovadas e agenda
+        </a>
+        <a href="Feed.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2.4" y="2.4" width="4.8" height="4.8" rx="1"></rect><rect x="8.8" y="2.4" width="4.8" height="4.8" rx="1"></rect><rect x="2.4" y="8.8" width="4.8" height="4.8" rx="1"></rect><rect x="8.8" y="8.8" width="4.8" height="4.8" rx="1"></rect></svg>
+          Prévia do feed
+        </a>
+        <a href="Metricas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2.6 13.4V9.6M6.2 13.4V4.2M9.8 13.4V7.4M13.4 13.4V2.6"></path></svg>
+          Métricas
+        </a>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.14em; color: #7E71A0; padding: 0 10px 6px;">UGC</span>
+        <a href="Creators.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; background: #2E2560; color: #FFFFFF; font-size: 13.5px; font-weight: 600;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="6.2" cy="6" r="2.6"></circle><path d="M2.4 13.4c0-2.3 1.7-3.9 3.8-3.9s3.8 1.6 3.8 3.9"></path><path d="M10.8 4.2a2.4 2.4 0 0 1 0 4.4M12 13.4c0-1.3-.3-2.3-.9-3"></path></svg>
+          Descobrir creators
+        </a>
+        <a href="Campanha.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.4 6.6v2.8l8.4 3.2V3.4Z"></path><path d="M10.8 5.4a2.6 2.6 0 0 1 0 5.2M4.6 9.8v2.6a1 1 0 0 0 2 0v-2"></path></svg>
+          Minhas campanhas
+        </a>
+      </div>
+    </nav>
+
+    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px;">
+      <a href="SejaCreator.dc.html" style="display: flex; align-items: center; gap: 9px; min-height: 44px; box-sizing: border-box; padding: 0 12px; border-radius: 9px; border: 1px solid #3B2A60; text-decoration: none; color: #DCD2EE; font-size: 12.5px; font-weight: 500;">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.2 3.2H3.4a1 1 0 0 0-1 1v8.2a1 1 0 0 0 1 1h8.2a1 1 0 0 0 1-1V9.8M9.4 2.6h4v4M13.4 2.6 7.8 8.2"></path></svg>
+        Portal do creator
+      </a>
+      <div style="display: flex; align-items: center; gap: 10px; padding: 8px; border-top: 1px solid #2B1E4A;">
+        <span style="width: 32px; height: 32px; border-radius: 99px; background: #43357A; color: #DFD7F0; display: flex; align-items: center; justify-content: center; font-family: Archivo, sans-serif; font-weight: 700; font-size: 12.5px;">AC</span>
+        <span style="display: flex; flex-direction: column; flex-grow: 1;">
+          <span style="font-size: 12.5px; font-weight: 600; color: #FFFFFF;">Aurora Calçados</span>
+          <span style="font-size: 11px; color: #9689B5;">Plano Completo</span>
+        </span>
+      </div>
+    </div>
+  </aside>
+
+  <main style="flex-grow: 1; display: flex; flex-direction: column; min-width: 0;">
+
+    <header style="height: 70px; flex-shrink: 0; box-sizing: border-box; border-bottom: 1px solid #E3DEEF; background: #FFFFFF; display: flex; align-items: center; gap: 16px; padding: 0 28px;">
+      <span style="display: flex; flex-direction: column; flex-grow: 1;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; color: #6E6488;">MARKETPLACE · 312 CREATORS APROVADOS</span>
+        <span style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.02em;">Descobrir creators</span>
+      </span>
+      <div style="display: flex; align-items: center; gap: 8px; min-height: 44px; box-sizing: border-box; padding: 0 14px; border: 1px solid #D5CFE7; border-radius: 9px; background: #FFFFFF; width: 300px;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#6E6488" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="7.2" cy="7.2" r="4.4"></circle><path d="M10.6 10.6 13.6 13.6"></path></svg>
+        <label for="busca" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%);">Buscar creator</label>
+        <input id="busca" type="search" placeholder="Nicho, cidade ou nome" style="border: none; outline: none; flex-grow: 1; font-size: 13px; color: #17122A; background: transparent;">
+      </div>
+      <a href="Campanha.dc.html" style="display: flex; align-items: center; min-height: 44px; box-sizing: border-box; padding: 0 16px; border-radius: 9px; background: #594797; color: #FFFFFF; text-decoration: none; font-size: 13.5px; font-weight: 600;">Abrir campanha</a>
+    </header>
+
+    <div style="flex-grow: 1; box-sizing: border-box; padding: 22px 28px; display: flex; gap: 18px; min-height: 0;">
+
+      <section style="width: 244px; flex-shrink: 0; background: #FFFFFF; border: 1px solid #E3DEEF; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 18px;">
+        <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 14px;">Filtros</h2>
+
+        <div style="display: flex; flex-direction: column; gap: 9px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.12em; color: #6E6488;">NICHO</span>
+          <span style="display: flex; align-items: center; gap: 9px;"><input id="n1" type="checkbox" checked style="width: 16px; height: 16px; accent-color: #594797;"><label for="n1" style="font-size: 13px;">Moda e calçados</label></span>
+          <span style="display: flex; align-items: center; gap: 9px;"><input id="n2" type="checkbox" checked style="width: 16px; height: 16px; accent-color: #594797;"><label for="n2" style="font-size: 13px;">Lifestyle</label></span>
+          <span style="display: flex; align-items: center; gap: 9px;"><input id="n3" type="checkbox" style="width: 16px; height: 16px; accent-color: #594797;"><label for="n3" style="font-size: 13px;">Infantil</label></span>
+          <span style="display: flex; align-items: center; gap: 9px;"><input id="n4" type="checkbox" style="width: 16px; height: 16px; accent-color: #594797;"><label for="n4" style="font-size: 13px;">Fitness</label></span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 7px;">
+          <label for="cidade" style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.12em; color: #6E6488;">CIDADE</label>
+          <select id="cidade" style="min-height: 44px; box-sizing: border-box; border: 1px solid #D5CFE7; border-radius: 8px; padding: 0 10px; font-size: 13px; color: #17122A; background: #FFFFFF;">
+            <option>Todas as cidades</option>
+            <option>Belo Horizonte</option>
+            <option>Curitiba</option>
+            <option>Florianópolis</option>
+          </select>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 7px;">
+          <label for="nota" style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.12em; color: #6E6488;">NOTA MÍNIMA</label>
+          <select id="nota" style="min-height: 44px; box-sizing: border-box; border: 1px solid #D5CFE7; border-radius: 8px; padding: 0 10px; font-size: 13px; color: #17122A; background: #FFFFFF;">
+            <option>4,5 ou mais</option>
+            <option>4,0 ou mais</option>
+            <option>Qualquer nota</option>
+          </select>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 9px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.12em; color: #6E6488;">ENTREGA</span>
+          <span style="display: flex; align-items: center; gap: 9px;"><input id="e1" type="checkbox" checked style="width: 16px; height: 16px; accent-color: #594797;"><label for="e1" style="font-size: 13px;">Entrega em até 7 dias</label></span>
+          <span style="display: flex; align-items: center; gap: 9px;"><input id="e2" type="checkbox" style="width: 16px; height: 16px; accent-color: #594797;"><label for="e2" style="font-size: 13px;">Já gravou para calçados</label></span>
+        </div>
+
+        <div style="margin-top: auto; background: #E3F3EB; border-radius: 10px; padding: 12px 13px;">
+          <p style="margin: 0; font-size: 12px; line-height: 1.55; color: #0B4630;">Para entrar no marketplace o creator precisa de <strong style="font-weight: 600;">5 vídeos no portfólio e 3 marcas</strong>, mais a curadoria na aprovação do cadastro.</p>
+        </div>
+      </section>
+
+      <section style="flex-grow: 1; display: flex; flex-direction: column; gap: 12px; min-width: 0;">
+
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="font-size: 13px; color: #574C74; flex-grow: 1;">58 creators combinam com o seu produto</span>
+          <span style="display: flex; align-items: center; gap: 8px;">
+            <label for="ordem" style="font-size: 12.5px; color: #6E6488;">Ordenar por</label>
+            <select id="ordem" style="min-height: 40px; box-sizing: border-box; border: 1px solid #D5CFE7; border-radius: 8px; padding: 0 10px; font-size: 12.5px; color: #17122A; background: #FFFFFF;">
+              <option>Ranking de entrega</option>
+              <option>Nota</option>
+              <option>Menor valor</option>
+            </select>
+          </span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px;">
+          <sc-for list="{{creators}}" as="c" hint-placeholder-count="6">
+            <div style="background: #FFFFFF; border: 1px solid #E3DEEF; border-radius: 13px; padding: 15px; display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; gap: 11px; align-items: center;">
+                <span style="width: 44px; height: 44px; flex-shrink: 0; border-radius: 99px; background: #DFD7F0; color: #43357A; display: flex; align-items: center; justify-content: center; font-family: Archivo, sans-serif; font-weight: 700; font-size: 14px;">{{c.iniciais}}</span>
+                <span style="display: flex; flex-direction: column; gap: 1px; min-width: 0;">
+                  <span style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 14px; letter-spacing: -0.01em;">{{c.nome}}</span>
+                  <span style="font-size: 11.5px; color: #6E6488;">{{c.cidade}}</span>
+                </span>
+              </div>
+
+              <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px;">
+                <span style="display: block; border: 2px solid #594797; border-radius: 12px; padding: 2px; background: #FFFFFF;">
+                  <span style="position: relative; display: block; height: 96px; border-radius: 9px; background: #E7D7C6; overflow: hidden;">
+                    <svg viewBox="0 0 100 112" style="position: absolute; bottom: 0; left: 50%; margin-left: -44px; width: 88px; height: auto;" aria-hidden="true">
+                      <rect x="26" y="0" width="17" height="86" rx="8.5" fill="#C9AF95"></rect>
+                      <rect x="56" y="0" width="17" height="86" rx="8.5" fill="#BFA286"></rect>
+                      <path d="M12 88h30c9 0 15 5 15 11v5H16c-3 0-4-2-4-4Z" fill="#FBF7F2"></path>
+                      <path d="M48 88h30c9 0 15 5 15 11v5H52c-3 0-4-2-4-4Z" fill="#FFFFFF"></path>
+                    </svg>
+                    <span style="position: absolute; bottom: 5px; left: 5px; font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; font-weight: 600; padding: 2px 5px; border-radius: 3px; background: rgba(23, 18, 42, 0.82); color: #FFFFFF;">0:28</span>
+                  </span>
+                </span>
+                <span style="display: block; border: 2px solid #594797; border-radius: 12px; padding: 2px; background: #FFFFFF;">
+                  <span style="position: relative; display: block; height: 96px; border-radius: 9px; background: #241C17; overflow: hidden;">
+                    <svg viewBox="0 0 80 100" style="position: absolute; bottom: 0; left: 50%; margin-left: -36px; width: 72px; height: auto;" aria-hidden="true">
+                      <circle cx="40" cy="32" r="17" fill="#4A3A2E"></circle>
+                      <path d="M8 100c0-21 14-34 32-34s32 13 32 34Z" fill="#3E3128"></path>
+                    </svg>
+                    <span style="position: absolute; bottom: 5px; left: 5px; font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; font-weight: 600; padding: 2px 5px; border-radius: 3px; background: rgba(23, 18, 42, 0.82); color: #FFFFFF;">0:41</span>
+                  </span>
+                </span>
+                <span style="display: block; border: 2px solid #594797; border-radius: 12px; padding: 2px; background: #FFFFFF;">
+                  <span style="position: relative; display: flex; align-items: center; justify-content: center; height: 96px; border-radius: 9px; background: #F7F1EA; overflow: hidden;">
+                    <svg viewBox="0 0 120 64" style="width: 76px; height: auto;" aria-hidden="true"><path d="M14 40C16 26 22 18 34 15c10-3 18-1 24 4l14 12c8 6 20 10 32 12 6 1 8 4 8 7v2c0 2-2 3-4 3H18c-4 0-8-3-8-8Z" fill="#C4553A"></path><path d="M11 48h101" stroke="#F7F1EA" stroke-width="3"></path></svg>
+                    <span style="position: absolute; bottom: 5px; left: 5px; font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; font-weight: 600; padding: 2px 5px; border-radius: 3px; background: rgba(23, 18, 42, 0.82); color: #FFFFFF;">0:19</span>
+                  </span>
+                </span>
+              </div>
+
+              <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                <span style="font-size: 11px; padding: 3px 8px; border-radius: 99px; background: #EFEAF8; color: #382D63;">{{c.nicho1}}</span>
+                <span style="font-size: 11px; padding: 3px 8px; border-radius: 99px; background: #EFEAF8; color: #382D63;">{{c.nicho2}}</span>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 10px; padding-top: 2px; border-top: 1px solid #EEEAF6;">
+                <span style="display: flex; flex-direction: column; flex-grow: 1; padding-top: 8px;">
+                  <span style="font-size: 12.5px; font-weight: 600;">{{c.nota}} · {{c.entregas}} entregas</span>
+                  <span style="font-size: 11.5px; color: #6E6488;">{{c.prazo}}</span>
+                </span>
+                <span style="display: flex; flex-direction: column; align-items: flex-end; padding-top: 8px;">
+                  <span style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 14px;">{{c.valor}}</span>
+                  <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.08em; color: #6E6488;">POR VÍDEO</span>
+                </span>
+              </div>
+
+              <div style="display: flex; gap: 8px;">
+                <a href="Perfil.dc.html" style="flex-grow: 1; display: flex; align-items: center; justify-content: center; min-height: 44px; box-sizing: border-box; border-radius: 8px; border: 1px solid #D5CFE7; color: #17122A; text-decoration: none; font-size: 12.5px; font-weight: 600;">Ver portfólio</a>
+                <button style="flex-grow: 1; min-height: 44px; border-radius: 8px; border: none; background: #17122A; color: #FFFFFF; font-size: 12.5px; font-weight: 600; cursor: pointer;">Convidar</button>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":920}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      creators: [
+        { iniciais: 'MB', nome: 'Marina B.', cidade: 'Belo Horizonte, MG', nicho1: 'moda', nicho2: 'calçados', nota: '4,9', entregas: '23', prazo: 'Entrega em 4 dias', valor: 'R$ 180' },
+        { iniciais: 'RT', nome: 'Rafael T.', cidade: 'Curitiba, PR', nicho1: 'lifestyle', nicho2: 'calçados', nota: '4,8', entregas: '17', prazo: 'Entrega em 5 dias', valor: 'R$ 150' },
+        { iniciais: 'JC', nome: 'Juliana C.', cidade: 'Florianópolis, SC', nicho1: 'moda', nicho2: 'praia', nota: '4,9', entregas: '31', prazo: 'Entrega em 3 dias', valor: 'R$ 220' },
+        { iniciais: 'DL', nome: 'Diego L.', cidade: 'Goiânia, GO', nicho1: 'lifestyle', nicho2: 'esporte', nota: '4,7', entregas: '12', prazo: 'Entrega em 6 dias', valor: 'R$ 140' },
+        { iniciais: 'PS', nome: 'Paula S.', cidade: 'Recife, PE', nicho1: 'moda', nicho2: 'infantil', nota: '5,0', entregas: '9', prazo: 'Entrega em 5 dias', valor: 'R$ 165' },
+        { iniciais: 'AV', nome: 'André V.', cidade: 'Campinas, SP', nicho1: 'calçados', nicho2: 'unboxing', nota: '4,6', entregas: '28', prazo: 'Entrega em 4 dias', valor: 'R$ 195' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

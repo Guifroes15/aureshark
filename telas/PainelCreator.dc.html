@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Painel do creator</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+  <style>
+    body { margin: 0; font-family: "IBM Plex Sans", system-ui, sans-serif; background: #F7F6FB; color: #17122A; }
+    a { color: #594797; }
+    a:hover { color: #43356F; }
+    button { font-family: inherit; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; height: 920px; box-sizing: border-box; display: flex; background: #F7F6FB; overflow: hidden;">
+
+  <aside style="width: 250px; flex-shrink: 0; background: #1A1030; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px; padding: 20px 14px;">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 4px 8px;">
+      <span style="display: flex; flex-direction: column; gap: 6px;"><img src="/_blob/542fd62e893ea5f673f207d49666722a" alt="Action Media" style="width: 176px; height: auto; display: block;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.14em; color: #9689B5; padding-left: 2px;">PORTAL DO CREATOR</span></span>
+    </div>
+
+    <nav style="display: flex; flex-direction: column; gap: 2px;">
+      <a href="PainelCreator.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; background: #2E2560; color: #FFFFFF; font-size: 13.5px; font-weight: 600;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 7.2 8 2.8l5.5 4.4V13a.6.6 0 0 1-.6.6H3.1a.6.6 0 0 1-.6-.6Z"></path></svg>
+        Início
+      </a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.4 4.2h11.2v7.6H2.4Z"></path><path d="M2.4 4.2 8 8.6l5.6-4.4"></path></svg>
+        <span style="flex-grow: 1;">Convites</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 99px; background: #A995DB; color: #22133E;">3</span>
+      </a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.4" y="3.2" width="11.2" height="9.6" rx="1.6"></rect><path d="M6.6 6.6 9.8 8 6.6 9.4Z"></path></svg>
+        Minhas entregas
+      </a>
+      <a href="Perfil.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2.4" y="2.4" width="4.8" height="4.8" rx="1"></rect><rect x="8.8" y="2.4" width="4.8" height="4.8" rx="1"></rect><rect x="2.4" y="8.8" width="4.8" height="4.8" rx="1"></rect><rect x="8.8" y="8.8" width="4.8" height="4.8" rx="1"></rect></svg>
+        Meu portfólio
+      </a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="5.6"></circle><path d="M9.8 6.2c-.5-.6-1.2-.9-1.9-.9-1 0-1.6.5-1.6 1.2 0 .8.7 1 1.7 1.2 1.2.2 1.9.5 1.9 1.4 0 .8-.7 1.4-1.9 1.4-.8 0-1.6-.3-2.1-1M8 4.2v7.6"></path></svg>
+        Ganhos
+      </a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="5.8" r="2.8"></circle><path d="M3 13.4c0-2.4 2.2-4 5-4s5 1.6 5 4"></path></svg>
+        Meu perfil
+      </a>
+    </nav>
+
+    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px;">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 9px; min-height: 44px; box-sizing: border-box; padding: 0 12px; border-radius: 9px; border: 1px solid #3B2A60; text-decoration: none; color: #DCD2EE; font-size: 12.5px; font-weight: 500;">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.2 3.2H3.4a1 1 0 0 0-1 1v8.2a1 1 0 0 0 1 1h8.2a1 1 0 0 0 1-1V9.8M9.4 2.6h4v4M13.4 2.6 7.8 8.2"></path></svg>
+        Ver o lado da loja
+      </a>
+      <div style="display: flex; align-items: center; gap: 10px; padding: 8px; border-top: 1px solid #2B1E4A;">
+        <span style="width: 32px; height: 32px; border-radius: 99px; background: #43357A; color: #DFD7F0; display: flex; align-items: center; justify-content: center; font-family: Archivo, sans-serif; font-weight: 700; font-size: 12.5px;">MB</span>
+        <span style="display: flex; flex-direction: column; flex-grow: 1;">
+          <span style="font-size: 12.5px; font-weight: 600; color: #FFFFFF;">Marina B.</span>
+          <span style="font-size: 11px; color: #9689B5;">Creator aprovada</span>
+        </span>
+      </div>
+    </div>
+  </aside>
+
+  <main style="flex-grow: 1; display: flex; flex-direction: column; min-width: 0;">
+
+    <header style="height: 70px; flex-shrink: 0; box-sizing: border-box; border-bottom: 1px solid #E3DEEF; background: #FFFFFF; display: flex; align-items: center; gap: 16px; padding: 0 28px;">
+      <span style="display: flex; flex-direction: column; flex-grow: 1;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; color: #6E6488;">QUINTA, 18 DE SETEMBRO</span>
+        <span style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.02em;">Olá, Marina</span>
+      </span>
+      <span style="display: flex; align-items: center; gap: 7px; padding: 8px 13px; border-radius: 99px; background: #EFEAF8; color: #3C3070; font-size: 12.5px; font-weight: 600;">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.4l1.7 3.5 3.9.6-2.8 2.7.7 3.8L8 11.2l-3.5 1.8.7-3.8L2.4 6.5l3.9-.6Z"></path></svg>
+        Top 10% de entrega
+      </span>
+    </header>
+
+    <div style="flex-grow: 1; box-sizing: border-box; padding: 24px 28px; display: flex; flex-direction: column; gap: 18px; min-height: 0;">
+
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px;">
+        <div style="background: #FFFFFF; border: 1px solid #E3DEEF; border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; gap: 2px;">
+          <span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 26px; letter-spacing: -0.03em; color: #594797;">3</span>
+          <span style="font-size: 12.5px; color: #574C74;">convites esperando resposta</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E3DEEF; border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; gap: 2px;">
+          <span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 26px; letter-spacing: -0.03em;">2</span>
+          <span style="font-size: 12.5px; color: #574C74;">entregas em andamento</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E3DEEF; border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; gap: 2px;">
+          <span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 26px; letter-spacing: -0.03em; color: #0D6B45;">R$ 540</span>
+          <span style="font-size: 12.5px; color: #574C74;">liberado em setembro</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E3DEEF; border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; gap: 2px;">
+          <span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 26px; letter-spacing: -0.03em;">4,9</span>
+          <span style="font-size: 12.5px; color: #574C74;">nota média em 23 entregas</span>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 18px; flex-grow: 1; min-height: 0;">
+
+        <section style="flex-grow: 1; background: #FFFFFF; border: 1px solid #E3DEEF; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 14px; min-width: 0;">
+          <div style="display: flex; align-items: baseline; gap: 10px;">
+            <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 16px; letter-spacing: -0.01em; flex-grow: 1;">Convites abertos</h2>
+            <span style="font-size: 12.5px; color: #6E6488;">Responda em até 48h para manter o ranking</span>
+          </div>
+
+          <sc-for list="{{convites}}" as="c" hint-placeholder-count="3">
+            <div style="border: 1px solid #EAE6F4; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 13px;">
+              <div style="display: flex; gap: 13px; align-items: center;">
+                <span style="width: 44px; height: 44px; flex-shrink: 0; border-radius: 9px; border: 1px solid #E3DEEF; background: #E7D7C6; display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 120 64" style="width: 66%; height: auto;" aria-hidden="true"><path d="M14 40C16 26 22 18 34 15c10-3 18-1 24 4l14 12c8 6 20 10 32 12 6 1 8 4 8 7v2c0 2-2 3-4 3H18c-4 0-8-3-8-8Z" fill="#241C17"></path><path d="M11 48h101" stroke="#E7D7C6" stroke-width="3"></path><path d="M34 21l10 6M40 18l10 6M46 16l10 6" stroke="#E7D7C6" stroke-width="2"></path></svg></span>
+                <span style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1; min-width: 0;">
+                  <span style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 14.5px;">{{c.marca}}</span>
+                  <span style="font-size: 12.5px; color: #6E6488;">{{c.produto}}</span>
+                </span>
+                <span style="display: flex; flex-direction: column; align-items: flex-end;">
+                  <span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: -0.02em; color: #0D6B45;">{{c.valor}}</span>
+                  <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.08em; color: #6E6488;">100% PARA VOCÊ</span>
+                </span>
+              </div>
+
+              <p style="margin: 0; font-size: 13px; line-height: 1.55; color: #574C74;">{{c.briefing}}</p>
+
+              <div style="display: flex; align-items: center; gap: 9px;">
+                <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; padding: 5px 9px; border-radius: 5px; background: #F2F0F8; color: #574C74;">{{c.prazo}}</span>
+                <span style="flex-grow: 1;"></span>
+                <button style="min-height: 44px; box-sizing: border-box; padding: 0 14px; border-radius: 8px; border: 1px solid #E3DEEF; background: #FFFFFF; color: #574C74; font-size: 12.5px; font-weight: 600; cursor: pointer;">Recusar</button>
+                <button style="min-height: 44px; box-sizing: border-box; padding: 0 18px; border-radius: 8px; border: none; background: #594797; color: #FFFFFF; font-size: 12.5px; font-weight: 600; cursor: pointer;">Aceitar e receber produto</button>
+              </div>
+            </div>
+          </sc-for>
+        </section>
+
+        <section style="width: 330px; flex-shrink: 0; display: flex; flex-direction: column; gap: 14px;">
+
+          <div style="background: #FFFFFF; border: 1px solid #E3DEEF; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 13px;">
+            <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 15px;">Seus ganhos</h2>
+            <div style="display: flex; flex-direction: column; gap: 9px;">
+              <span style="display: flex; justify-content: space-between; font-size: 13px;"><span style="color: #574C74;">Retido aguardando aprovação</span><span style="font-weight: 600;">R$ 180,00</span></span>
+              <span style="display: flex; justify-content: space-between; font-size: 13px;"><span style="color: #574C74;">Liberado em setembro</span><span style="font-weight: 600; color: #0D6B45;">R$ 540,00</span></span>
+              <span style="display: flex; justify-content: space-between; font-size: 13px;"><span style="color: #574C74;">Próximo pagamento</span><span style="font-weight: 600;">Sexta, 19/09</span></span>
+            </div>
+            <div style="background: #FCF0DC; border-radius: 10px; padding: 12px;">
+              <p style="margin: 0; font-size: 12px; line-height: 1.55; color: #4A3714;">A marca tem 7 dias para responder o vídeo que você entregou ontem. Sem resposta, o sistema aprova e libera o pagamento automaticamente.</p>
+            </div>
+          </div>
+
+          <div style="background: #FFFFFF; border: 1px solid #E3DEEF; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 13px;">
+            <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 15px;">Suba no ranqueamento</h2>
+            <sc-for list="{{ranking}}" as="r" hint-placeholder-count="3">
+              <span style="display: flex; align-items: flex-start; gap: 10px;">
+                <sc-if value="{{r.feito}}" hint-placeholder-val="{{true}}">
+                  <span style="width: 19px; height: 19px; flex-shrink: 0; margin-top: 1px; border-radius: 99px; background: #E3F3EB; display: flex; align-items: center; justify-content: center;">
+                    <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="#0D6B45" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 8.4 6.4 11.2l6-6.4"></path></svg>
+                  </span>
+                </sc-if>
+                <sc-if value="{{r.pendente}}" hint-placeholder-val="{{true}}">
+                  <span style="width: 19px; height: 19px; flex-shrink: 0; margin-top: 1px; border-radius: 99px; border: 1.5px solid #D5CFE7; box-sizing: border-box;"></span>
+                </sc-if>
+                <span style="display: flex; flex-direction: column;">
+                  <span style="font-size: 13px; font-weight: 600;">{{r.titulo}}</span>
+                  <span style="font-size: 11.5px; color: #6E6488; line-height: 1.5;">{{r.nota}}</span>
+                </span>
+              </span>
+            </sc-for>
+          </div>
+
+          <div style="margin-top: auto; background: #17122A; border-radius: 14px; padding: 18px;">
+            <p style="margin: 0 0 7px; font-family: Archivo, sans-serif; font-weight: 700; font-size: 14px; color: #FFFFFF;">Seu ranking é seu ativo</p>
+            <p style="margin: 0; font-size: 12.5px; line-height: 1.55; color: #B5A9CE;">Quem entrega bem aparece primeiro na busca das lojas. Fechar por fora significa começar de novo do zero em outro lugar.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":920}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      convites: [
+        { marca: 'Aurora Calçados', produto: 'Tênis Aurora Base branco · 36', valor: 'R$ 180', prazo: 'ENTREGA ATÉ 25/09', briefing: 'Vídeo vertical de 30 a 45s calçando e andando na rua, comentando conforto e acabamento. Falar da numeração 34 ao 40, sem mencionar preço.' },
+        { marca: 'Loja de moda no centro', produto: 'Sandália de festa · 36', valor: 'R$ 150', prazo: 'ENTREGA ATÉ 28/09', briefing: 'Três jeitos de usar a mesma sandália, corte rápido, foco em ocasião de festa e casamento.' },
+        { marca: 'Marca de tênis infantil', produto: 'Kit dois pares · 28 e 30', valor: 'R$ 210', prazo: 'ENTREGA ATÉ 02/10', briefing: 'Vídeo de mãe mostrando o calce e a durabilidade depois de uma semana de escola. Criança pode aparecer só de pés.' }
+      ],
+      ranking: [
+        { titulo: 'Perfil completo', nota: 'Bio, cidade, valor e nichos preenchidos', feito: true, pendente: false },
+        { titulo: 'Responder convite em até 48h', nota: 'Sua média hoje é de 9 horas', feito: true, pendente: false },
+        { titulo: '5 entregas seguidas sem pedido de ajuste', nota: 'Você está em 3 de 5', feito: false, pendente: true },
+        { titulo: 'Portfólio com 10 vídeos', nota: 'Você tem 23 — meta batida', feito: true, pendente: false }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Painel de publicações aprovadas</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+  <style>
+    body { margin: 0; font-family: "IBM Plex Sans", system-ui, sans-serif; background: #F7F6FB; color: #17122A; }
+    a { color: #594797; }
+    a:hover { color: #43356F; }
+    button { font-family: inherit; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; height: 920px; box-sizing: border-box; display: flex; background: #F7F6FB; overflow: hidden;">
+
+  <aside style="width: 250px; flex-shrink: 0; background: #1A1030; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px; padding: 20px 14px;">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 4px 8px;">
+      <img src="/_blob/542fd62e893ea5f673f207d49666722a" alt="Action Media" style="width: 176px; height: auto; display: block;">
+    </div>
+
+    <nav style="display: flex; flex-direction: column; gap: 18px;">
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.14em; color: #7E71A0; padding: 0 10px 6px;">GERAL</span>
+        <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 7.2 8 2.8l5.5 4.4V13a.6.6 0 0 1-.6.6H3.1a.6.6 0 0 1-.6-.6Z"></path></svg>
+          Início
+        </a>
+        <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2.3" y="3.4" width="11.4" height="10.2" rx="1.4"></rect><path d="M2.3 6.6h11.4M5.6 2.2v2.2M10.4 2.2v2.2"></path></svg>
+          Planejamento
+        </a>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.14em; color: #7E71A0; padding: 0 10px 6px;">SOCIAL MEDIA</span>
+        <a href="Gerar.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.2 9.4 6.2 13.4 7.6 9.4 9 8 13 6.6 9 2.6 7.6 6.6 6.2Z"></path></svg>
+          Gerar publicações
+        </a>
+        <a href="Modelos.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2.4" y="2.4" width="11.2" height="7" rx="1.4"></rect><path d="M2.4 12h6.4M2.4 14.2h4"></path></svg>
+          Modelos
+        </a>
+        <a href="Aprovados.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; background: #2E2560; color: #FFFFFF; font-size: 13.5px; font-weight: 600;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.4" y="2.4" width="11.2" height="11.2" rx="2"></rect><path d="M5.4 8.2 7.4 10.2l3.4-3.8"></path></svg>
+          Aprovadas e agenda
+        </a>
+        <a href="Feed.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2.4" y="2.4" width="4.8" height="4.8" rx="1"></rect><rect x="8.8" y="2.4" width="4.8" height="4.8" rx="1"></rect><rect x="2.4" y="8.8" width="4.8" height="4.8" rx="1"></rect><rect x="8.8" y="8.8" width="4.8" height="4.8" rx="1"></rect></svg>
+          Prévia do feed
+        </a>
+        <a href="Metricas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2.6 13.4V9.6M6.2 13.4V4.2M9.8 13.4V7.4M13.4 13.4V2.6"></path></svg>
+          Métricas
+        </a>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.14em; color: #7E71A0; padding: 0 10px 6px;">UGC</span>
+        <a href="Creators.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="6.2" cy="6" r="2.6"></circle><path d="M2.4 13.4c0-2.3 1.7-3.9 3.8-3.9s3.8 1.6 3.8 3.9"></path><path d="M10.8 4.2a2.4 2.4 0 0 1 0 4.4M12 13.4c0-1.3-.3-2.3-.9-3"></path></svg>
+          Descobrir creators
+        </a>
+        <a href="Campanha.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.4 6.6v2.8l8.4 3.2V3.4Z"></path><path d="M10.8 5.4a2.6 2.6 0 0 1 0 5.2M4.6 9.8v2.6a1 1 0 0 0 2 0v-2"></path></svg>
+          Minhas campanhas
+        </a>
+      </div>
+    </nav>
+
+    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px;">
+      <a href="SejaCreator.dc.html" style="display: flex; align-items: center; gap: 9px; min-height: 44px; box-sizing: border-box; padding: 0 12px; border-radius: 9px; border: 1px solid #3B2A60; text-decoration: none; color: #DCD2EE; font-size: 12.5px; font-weight: 500;">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.2 3.2H3.4a1 1 0 0 0-1 1v8.2a1 1 0 0 0 1 1h8.2a1 1 0 0 0 1-1V9.8M9.4 2.6h4v4M13.4 2.6 7.8 8.2"></path></svg>
+        Portal do creator
+      </a>
+      <div style="display: flex; align-items: center; gap: 10px; padding: 8px; border-top: 1px solid #2B1E4A;">
+        <span style="width: 32px; height: 32px; border-radius: 99px; background: #43357A; color: #DFD7F0; display: flex; align-items: center; justify-content: center; font-family: Archivo, sans-serif; font-weight: 700; font-size: 12.5px;">AC</span>
+        <span style="display: flex; flex-direction: column; flex-grow: 1;">
+          <span style="font-size: 12.5px; font-weight: 600; color: #FFFFFF;">Aurora Calçados</span>
+          <span style="font-size: 11px; color: #9689B5;">Plano Completo</span>
+        </span>
+      </div>
+    </div>
+  </aside>
+
+  <main style="flex-grow: 1; display: flex; flex-direction: column; min-width: 0;">
+
+    <header style="height: 70px; flex-shrink: 0; box-sizing: border-box; border-bottom: 1px solid #E3DEEF; background: #FFFFFF; display: flex; align-items: center; gap: 16px; padding: 0 28px;">
+      <span style="display: flex; flex-direction: column; flex-grow: 1;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; color: #6E6488;">21 A 27 DE SETEMBRO · INSTAGRAM E FACEBOOK</span>
+        <span style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.02em;">Aprovadas e agenda</span>
+      </span>
+      <div style="display: flex; align-items: center; border: 1px solid #D5CFE7; border-radius: 9px; overflow: hidden;">
+        <button style="min-height: 40px; padding: 0 14px; border: none; background: #17122A; color: #FFFFFF; font-size: 12.5px; font-weight: 600; cursor: pointer;">Quadro</button>
+        <button style="min-height: 40px; padding: 0 14px; border: none; border-left: 1px solid #D5CFE7; background: #FFFFFF; color: #574C74; font-size: 12.5px; font-weight: 500; cursor: pointer;">Calendário</button>
+      </div>
+      <button style="display: flex; align-items: center; gap: 8px; min-height: 44px; box-sizing: border-box; padding: 0 16px; border-radius: 9px; border: none; background: #594797; color: #FFFFFF; font-size: 13.5px; font-weight: 600; cursor: pointer;">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 8.4 6.4 11.2l6-6.4"></path></svg>
+        Aprovar a semana inteira
+      </button>
+    </header>
+
+    <div style="flex-grow: 1; box-sizing: border-box; padding: 22px 28px; display: flex; flex-direction: column; gap: 16px; min-height: 0;">
+
+      <div style="display: flex; gap: 16px; flex-grow: 1; min-height: 0;">
+
+        <section style="flex-grow: 1; background: #FFFFFF; border: 1px solid #E3DEEF; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0;">
+          <div style="display: flex; align-items: center; gap: 8px; padding-bottom: 10px; border-bottom: 1px solid #EEEAF6;">
+            <span style="width: 8px; height: 8px; border-radius: 99px; background: #8A5300;"></span>
+            <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 14px; flex-grow: 1;">Esperando você</h2>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; color: #8A5300; background: #FCF0DC; padding: 3px 8px; border-radius: 5px;">4</span>
+          </div>
+
+          <sc-for list="{{aguardando}}" as="a" hint-placeholder-count="4">
+            <div style="display: flex; flex-direction: column; gap: 10px; padding: 12px; border: 1px solid #EAE6F4; border-radius: 11px;">
+              <div style="display: flex; gap: 11px;">
+                <span style="width: 58px; height: 58px; flex-shrink: 0; border-radius: 8px; border: 1px solid #E3DEEF; background: #E7D7C6; display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 120 64" style="width: 66%; height: auto;" aria-hidden="true"><path d="M14 40C16 26 22 18 34 15c10-3 18-1 24 4l14 12c8 6 20 10 32 12 6 1 8 4 8 7v2c0 2-2 3-4 3H18c-4 0-8-3-8-8Z" fill="#241C17"></path><path d="M11 48h101" stroke="#E7D7C6" stroke-width="3"></path><path d="M34 21l10 6M40 18l10 6M46 16l10 6" stroke="#E7D7C6" stroke-width="2"></path></svg></span>
+                <span style="display: flex; flex-direction: column; gap: 3px; min-width: 0;">
+                  <span style="font-size: 13px; font-weight: 600; line-height: 1.35;">{{a.titulo}}</span>
+                  <span style="font-size: 11.5px; color: #6E6488;">{{a.quando}}</span>
+                </span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <button style="flex-grow: 1; min-height: 40px; border-radius: 8px; border: none; background: #17122A; color: #FFFFFF; font-size: 12.5px; font-weight: 600; cursor: pointer;">Aprovar</button>
+                <a href="Gerar.dc.html" style="display: flex; align-items: center; min-height: 40px; box-sizing: border-box; padding: 0 12px; border-radius: 8px; border: 1px solid #E3DEEF; color: #574C74; text-decoration: none; font-size: 12.5px; font-weight: 600;">Refazer</a>
+              </div>
+            </div>
+          </sc-for>
+        </section>
+
+        <section style="flex-grow: 1; background: #FFFFFF; border: 1px solid #E3DEEF; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0;">
+          <div style="display: flex; align-items: center; gap: 8px; padding-bottom: 10px; border-bottom: 1px solid #EEEAF6;">
+            <span style="width: 8px; height: 8px; border-radius: 99px; background: #594797;"></span>
+            <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 14px; flex-grow: 1;">Aprovadas e agendadas</h2>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; color: #594797; background: #EFEAF8; padding: 3px 8px; border-radius: 5px;">6</span>
+          </div>
+
+          <sc-for list="{{agendadas}}" as="g" hint-placeholder-count="5">
+            <div style="display: flex; gap: 11px; padding: 11px; border: 1px solid #EAE6F4; border-radius: 11px;">
+              <span style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 8px; border: 1px solid #E3DEEF; background: #F7F1EA; display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 120 64" style="width: 66%; height: auto;" aria-hidden="true"><path d="M14 40C16 26 22 18 34 15c10-3 18-1 24 4l14 12c8 6 20 10 32 12 6 1 8 4 8 7v2c0 2-2 3-4 3H18c-4 0-8-3-8-8Z" fill="#C4553A"></path><path d="M11 48h101" stroke="#F7F1EA" stroke-width="3"></path><path d="M34 21l10 6M40 18l10 6M46 16l10 6" stroke="#F7F1EA" stroke-width="2"></path></svg></span>
+              <span style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1; min-width: 0;">
+                <span style="font-size: 13px; font-weight: 600; line-height: 1.35;">{{g.titulo}}</span>
+                <span style="display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: #6E6488;">
+                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="5.8"></circle><path d="M8 5.2V8l2 1.6"></path></svg>
+                  {{g.quando}}
+                </span>
+              </span>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.08em; align-self: flex-start; padding: 3px 7px; border-radius: 5px; background: #EFEAF8; color: #453882;">{{g.rede}}</span>
+            </div>
+          </sc-for>
+        </section>
+
+        <section style="flex-grow: 1; background: #FFFFFF; border: 1px solid #E3DEEF; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0;">
+          <div style="display: flex; align-items: center; gap: 8px; padding-bottom: 10px; border-bottom: 1px solid #EEEAF6;">
+            <span style="width: 8px; height: 8px; border-radius: 99px; background: #0D6B45;"></span>
+            <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 14px; flex-grow: 1;">Publicadas</h2>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; color: #0D6B45; background: #E3F3EB; padding: 3px 8px; border-radius: 5px;">3</span>
+          </div>
+
+          <sc-for list="{{publicadas}}" as="p" hint-placeholder-count="3">
+            <div style="display: flex; gap: 11px; padding: 11px; border: 1px solid #EAE6F4; border-radius: 11px;">
+              <span style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 8px; border: 1px solid #E3DEEF; background: #C4553A; display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 120 64" style="width: 66%; height: auto;" aria-hidden="true"><path d="M14 40C16 26 22 18 34 15c10-3 18-1 24 4l14 12c8 6 20 10 32 12 6 1 8 4 8 7v2c0 2-2 3-4 3H18c-4 0-8-3-8-8Z" fill="#FBF6F0"></path><path d="M11 48h101" stroke="#C4553A" stroke-width="3"></path><path d="M34 21l10 6M40 18l10 6M46 16l10 6" stroke="#C4553A" stroke-width="2"></path></svg></span>
+              <span style="display: flex; flex-direction: column; gap: 3px; min-width: 0;">
+                <span style="font-size: 13px; font-weight: 600; line-height: 1.35;">{{p.titulo}}</span>
+                <span style="font-size: 11.5px; color: #6E6488;">{{p.metrica}}</span>
+              </span>
+            </div>
+          </sc-for>
+
+          <div style="margin-top: auto; background: #EFEAF8; border-radius: 11px; padding: 14px;">
+            <p style="margin: 0 0 6px; font-family: Archivo, sans-serif; font-weight: 700; font-size: 13px;">O que performou volta para o planejamento</p>
+            <p style="margin: 0; font-size: 12px; line-height: 1.5; color: #382D63;">Prova social salvou 3x mais que vitrine. A próxima semana já vem com mais desse formato.</p>
+          </div>
+        </section>
+      </div>
+
+      <div style="flex-shrink: 0; background: #17122A; border-radius: 12px; padding: 16px 20px; display: flex; align-items: center; gap: 20px;">
+        <span style="display: flex; flex-direction: column; flex-grow: 1;">
+          <span style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 15px; color: #FFFFFF; letter-spacing: -0.01em;">Nada vai ao ar sem aprovação</span>
+          <span style="font-size: 12.5px; color: #B5A9CE;">Uma passada por dia libera a semana inteira em poucos segundos. Publicar sem aprovar é dano de marca, não bug.</span>
+        </span>
+        <span style="display: flex; flex-direction: column; align-items: flex-end;">
+          <span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 22px; color: #A995DB; letter-spacing: -0.03em;">38 s</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.1em; color: #8F82AE;">TEMPO MÉDIO DE APROVAÇÃO</span>
+        </span>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":920}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      aguardando: [
+        { titulo: 'Chegada da coleção de verão', quando: 'Terça, 22/09 · 18h30 · carrossel' },
+        { titulo: 'Tênis branco — prova social', quando: 'Quarta, 23/09 · 12h · estático' },
+        { titulo: 'Última semana da promoção', quando: 'Sábado, 27/09 · 10h · estático' },
+        { titulo: 'Bastidor da loja no sábado', quando: 'Sábado, 27/09 · 17h · reels' }
+      ],
+      agendadas: [
+        { titulo: 'Sandália de festa — combinações', quando: 'Hoje, 19h', rede: 'IG + FB' },
+        { titulo: 'Numeração 34 ao 40 chegou', quando: 'Quinta, 24/09 · 11h', rede: 'IG' },
+        { titulo: 'Depoimento da cliente Rafa', quando: 'Quinta, 24/09 · 20h', rede: 'IG' },
+        { titulo: 'Combo dois pares infantil', quando: 'Sexta, 25/09 · 13h', rede: 'IG + FB' },
+        { titulo: 'Enquete: qual cor primeiro?', quando: 'Sexta, 25/09 · 18h', rede: 'IG' }
+      ],
+      publicadas: [
+        { titulo: 'Look completo com mocassim', metrica: 'Domingo · 2ª maior taxa de salvamento do mês' },
+        { titulo: 'Chegou tamanho 41', metrica: 'Sábado · 19 respostas no direct' },
+        { titulo: 'Promoção de meia-estação', metrica: 'Sexta · melhor alcance da semana' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

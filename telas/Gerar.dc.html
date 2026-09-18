@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Gerar publicações com IA</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+  <style>
+    body { margin: 0; font-family: "IBM Plex Sans", system-ui, sans-serif; background: #F7F6FB; color: #17122A; }
+    a { color: #594797; }
+    a:hover { color: #43356F; }
+    button { font-family: inherit; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; height: 920px; box-sizing: border-box; display: flex; background: #F7F6FB; overflow: hidden;">
+
+  <aside style="width: 250px; flex-shrink: 0; background: #1A1030; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px; padding: 20px 14px;">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 4px 8px;">
+      <img src="/_blob/542fd62e893ea5f673f207d49666722a" alt="Action Media" style="width: 176px; height: auto; display: block;">
+    </div>
+
+    <nav style="display: flex; flex-direction: column; gap: 18px;">
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.14em; color: #7E71A0; padding: 0 10px 6px;">GERAL</span>
+        <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 7.2 8 2.8l5.5 4.4V13a.6.6 0 0 1-.6.6H3.1a.6.6 0 0 1-.6-.6Z"></path></svg>
+          Início
+        </a>
+        <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2.3" y="3.4" width="11.4" height="10.2" rx="1.4"></rect><path d="M2.3 6.6h11.4M5.6 2.2v2.2M10.4 2.2v2.2"></path></svg>
+          Planejamento
+        </a>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.14em; color: #7E71A0; padding: 0 10px 6px;">SOCIAL MEDIA</span>
+        <a href="Gerar.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; background: #2E2560; color: #FFFFFF; font-size: 13.5px; font-weight: 600;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.2 9.4 6.2 13.4 7.6 9.4 9 8 13 6.6 9 2.6 7.6 6.6 6.2Z"></path></svg>
+          Gerar publicações
+        </a>
+        <a href="Modelos.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2.4" y="2.4" width="11.2" height="7" rx="1.4"></rect><path d="M2.4 12h6.4M2.4 14.2h4"></path></svg>
+          Modelos
+        </a>
+        <a href="Aprovados.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.4" y="2.4" width="11.2" height="11.2" rx="2"></rect><path d="M5.4 8.2 7.4 10.2l3.4-3.8"></path></svg>
+          Aprovadas e agenda
+        </a>
+        <a href="Feed.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2.4" y="2.4" width="4.8" height="4.8" rx="1"></rect><rect x="8.8" y="2.4" width="4.8" height="4.8" rx="1"></rect><rect x="2.4" y="8.8" width="4.8" height="4.8" rx="1"></rect><rect x="8.8" y="8.8" width="4.8" height="4.8" rx="1"></rect></svg>
+          Prévia do feed
+        </a>
+        <a href="Metricas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2.6 13.4V9.6M6.2 13.4V4.2M9.8 13.4V7.4M13.4 13.4V2.6"></path></svg>
+          Métricas
+        </a>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.14em; color: #7E71A0; padding: 0 10px 6px;">UGC</span>
+        <a href="Creators.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="6.2" cy="6" r="2.6"></circle><path d="M2.4 13.4c0-2.3 1.7-3.9 3.8-3.9s3.8 1.6 3.8 3.9"></path><path d="M10.8 4.2a2.4 2.4 0 0 1 0 4.4M12 13.4c0-1.3-.3-2.3-.9-3"></path></svg>
+          Descobrir creators
+        </a>
+        <a href="Campanha.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 10px; border-radius: 9px; text-decoration: none; color: #C6BADF; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.4 6.6v2.8l8.4 3.2V3.4Z"></path><path d="M10.8 5.4a2.6 2.6 0 0 1 0 5.2M4.6 9.8v2.6a1 1 0 0 0 2 0v-2"></path></svg>
+          Minhas campanhas
+        </a>
+      </div>
+    </nav>
+
+    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px;">
+      <a href="SejaCreator.dc.html" style="display: flex; align-items: center; gap: 9px; min-height: 44px; box-sizing: border-box; padding: 0 12px; border-radius: 9px; border: 1px solid #3B2A60; text-decoration: none; color: #DCD2EE; font-size: 12.5px; font-weight: 500;">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.2 3.2H3.4a1 1 0 0 0-1 1v8.2a1 1 0 0 0 1 1h8.2a1 1 0 0 0 1-1V9.8M9.4 2.6h4v4M13.4 2.6 7.8 8.2"></path></svg>
+        Portal do creator
+      </a>
+      <div style="display: flex; align-items: center; gap: 10px; padding: 8px; border-top: 1px solid #2B1E4A;">
+        <span style="width: 32px; height: 32px; border-radius: 99px; background: #43357A; color: #DFD7F0; display: flex; align-items: center; justify-content: center; font-family: Archivo, sans-serif; font-weight: 700; font-size: 12.5px;">AC</span>
+        <span style="display: flex; flex-direction: column; flex-grow: 1;">
+          <span style="font-size: 12.5px; font-weight: 600; color: #FFFFFF;">Aurora Calçados</span>
+          <span style="font-size: 11px; color: #9689B5;">Plano Completo</span>
+        </span>
+      </div>
+    </div>
+  </aside>
+
+  <main style="flex-grow: 1; display: flex; flex-direction: column; min-width: 0;">
+
+    <header style="height: 70px; flex-shrink: 0; box-sizing: border-box; border-bottom: 1px solid #E3DEEF; background: #FFFFFF; display: flex; align-items: center; gap: 16px; padding: 0 28px;">
+      <span style="display: flex; flex-direction: column; flex-grow: 1;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; color: #6E6488;">PLANEJAMENTO · 23 DE SETEMBRO · ESTÁTICO</span>
+        <span style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.02em;">Tênis branco — prova social</span>
+      </span>
+      <span style="display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: #574C74;">
+        <span style="width: 9px; height: 9px; border-radius: 99px; background: #0D6B45;"></span>
+        Identidade da marca lida do @auroracalcados
+      </span>
+    </header>
+
+    <div style="flex-grow: 1; box-sizing: border-box; padding: 22px 28px; display: flex; gap: 18px; min-height: 0;">
+
+      <section style="width: 348px; flex-shrink: 0; background: #FFFFFF; border: 1px solid #E3DEEF; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+        <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 15px; letter-spacing: -0.01em;">O que a IA recebeu</h2>
+
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.12em; color: #6E6488;">OBJETIVO DO POST</span>
+          <div style="border: 1px solid #E3DEEF; border-radius: 9px; padding: 10px 12px; font-size: 13px; background: #FAF9FD;">Converter quem já visitou a loja e não comprou</div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <label for="copy" style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.12em; color: #6E6488;">COPY APROVADA NO PLANEJAMENTO</label>
+          <textarea id="copy" rows="4" style="border: 1px solid #E3DEEF; border-radius: 9px; padding: 10px 12px; font-family: inherit; font-size: 13px; line-height: 1.55; color: #17122A; resize: none; background: #FFFFFF;">Todo mundo tem um branco. O seu aguenta a semana inteira? Numeração 34 ao 40 na loja do Iguatemi.</textarea>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.12em; color: #6E6488;">PRODUTO DO CATÁLOGO</span>
+          <div style="display: flex; align-items: center; gap: 10px; border: 1px solid #E3DEEF; border-radius: 9px; padding: 8px 10px;">
+            <span style="width: 44px; height: 44px; flex-shrink: 0; border-radius: 7px; background: #F7F1EA; border: 1px solid #E2D6C7; display: flex; align-items: center; justify-content: center;">
+              <svg width="32" height="18" viewBox="0 0 120 64" aria-hidden="true"><path d="M14 40C16 26 22 18 34 15c10-3 18-1 24 4l14 12c8 6 20 10 32 12 6 1 8 4 8 7v2c0 2-2 3-4 3H18c-4 0-8-3-8-8Z" fill="#241C17"></path><path d="M11 48h101" stroke="#F7F1EA" stroke-width="3"></path><path d="M34 21l10 6M40 18l10 6M46 16l10 6" stroke="#F7F1EA" stroke-width="2"></path></svg>
+            </span>
+            <span style="display: flex; flex-direction: column;">
+              <span style="font-size: 13px; font-weight: 600;">Tênis Aurora Base branco</span>
+              <span style="font-size: 11.5px; color: #6E6488;">Puxado do ERP · 38 pares em estoque</span>
+            </span>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.12em; color: #6E6488;">ESTILO DA MARCA</span>
+          <div style="display: flex; gap: 6px; align-items: center;">
+            <span style="width: 26px; height: 26px; border-radius: 6px; background: #F7F1EA; border: 1px solid #E2D6C7;"></span>
+            <span style="width: 26px; height: 26px; border-radius: 6px; background: #E7D7C6;"></span>
+            <span style="width: 26px; height: 26px; border-radius: 6px; background: #C4553A;"></span>
+            <span style="width: 26px; height: 26px; border-radius: 6px; background: #241C17;"></span>
+            <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 20px; padding-left: 6px;">Aurora</span>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+            <span style="font-size: 12px; padding: 5px 10px; border-radius: 99px; background: #EFEAF8; color: #382D63;">tipografia serifada</span>
+            <span style="font-size: 12px; padding: 5px 10px; border-radius: 99px; background: #EFEAF8; color: #382D63;">foto em ambiente real</span>
+            <span style="font-size: 12px; padding: 5px 10px; border-radius: 99px; background: #EFEAF8; color: #382D63;">tom direto, sem gíria</span>
+          </div>
+        </div>
+
+        <div style="margin-top: auto; background: #FCF0DC; border: 1px solid #EBD3A6; border-radius: 10px; padding: 12px 14px;">
+          <p style="margin: 0; font-size: 12.5px; line-height: 1.55; color: #4A3714;"><strong style="font-weight: 600;">Sem briefing.</strong> O cliente conectou o Instagram uma vez. Daqui em diante ele só escolhe o objetivo e aprova.</p>
+        </div>
+      </section>
+
+      <section style="flex-grow: 1; display: flex; flex-direction: column; gap: 12px; min-width: 0;">
+
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 15px; letter-spacing: -0.01em; flex-grow: 1;">20 opções geradas &middot; escolha 10</h2>
+          <button style="min-height: 40px; box-sizing: border-box; padding: 0 14px; border-radius: 8px; border: 1px solid #D5CFE7; background: #FFFFFF; color: #17122A; font-size: 12.5px; font-weight: 600; cursor: pointer;">Gerar mais 6</button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px;">
+
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="position: relative;">
+              <button onClick="{{pick1}}" aria-label="Selecionar opção 1" style="display: block; width: 100%; height: 248px; padding: 0; border: 1px solid #E3DEEF; border-radius: 12px; background: #F7F1EA; overflow: hidden; cursor: pointer;">
+                <span style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; width: 100%; height: 100%; box-sizing: border-box; padding: 16px 14px;">
+                  <span style="font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; font-weight: 600; letter-spacing: 0.24em; color: #8A7360;">AURORA CALÇADOS</span>
+                  <svg width="140" height="76" viewBox="0 0 120 64" aria-hidden="true"><path d="M14 40C16 26 22 18 34 15c10-3 18-1 24 4l14 12c8 6 20 10 32 12 6 1 8 4 8 7v2c0 2-2 3-4 3H18c-4 0-8-3-8-8Z" fill="#241C17"></path><path d="M11 48h101" stroke="#F7F1EA" stroke-width="3"></path><path d="M34 21l10 6M40 18l10 6M46 16l10 6" stroke="#F7F1EA" stroke-width="2"></path></svg>
+                  <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.12; color: #241C17; text-align: center;">Todo mundo tem um branco</span>
+                </span>
+              </button>
+              <sc-if value="{{sel1}}" hint-placeholder-val="{{true}}">
+                <span style="position: absolute; top: -3px; right: -3px; bottom: -3px; left: -3px; border: 3px solid #594797; border-radius: 15px; pointer-events: none;"></span>
+                <span style="position: absolute; top: 10px; right: 10px; width: 28px; height: 28px; border-radius: 99px; background: #594797; display: flex; align-items: center; justify-content: center;">
+                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 8.4 6.4 11.2l6-6.4"></path></svg>
+                </span>
+              </sc-if>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="flex-grow: 1; font-size: 12px; color: #6E6488; min-width: 0;">Produto em fundo claro</span>
+              <button style="min-height: 44px; box-sizing: border-box; padding: 0 12px; border-radius: 8px; border: 1px solid #E3DEEF; background: #FFFFFF; color: #574C74; font-size: 12px; font-weight: 600; cursor: pointer;">Refazer</button>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="position: relative;">
+              <button onClick="{{pick2}}" aria-label="Selecionar opção 2" style="display: block; width: 100%; height: 248px; padding: 0; border: 1px solid #E3DEEF; border-radius: 12px; background: #E7D7C6; overflow: hidden; cursor: pointer;">
+                <span style="position: relative; display: block; width: 100%; height: 100%;">
+                  <span style="position: absolute; top: 0; left: 0; right: 0; height: 176px; display: flex; align-items: flex-end; justify-content: center; overflow: hidden;">
+                    <svg width="150" height="168" viewBox="0 0 100 112" aria-hidden="true">
+                      <rect x="26" y="0" width="17" height="86" rx="8.5" fill="#C9AF95"></rect>
+                      <rect x="56" y="0" width="17" height="86" rx="8.5" fill="#BFA286"></rect>
+                      <path d="M12 88h30c9 0 15 5 15 11v5H16c-3 0-4-2-4-4Z" fill="#FBF7F2"></path>
+                      <path d="M48 88h30c9 0 15 5 15 11v5H52c-3 0-4-2-4-4Z" fill="#FFFFFF"></path>
+                      <path d="M12 101h60M48 101h45" stroke="#D8C7B4" stroke-width="2"></path>
+                    </svg>
+                  </span>
+                  <span style="position: absolute; bottom: 0; left: 0; right: 0; box-sizing: border-box; padding: 12px 14px; background: #241C17; display: flex; flex-direction: column; gap: 3px;">
+                    <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 19px; line-height: 1.15; color: #F7F1EA;">O seu aguenta a semana inteira?</span>
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 8px; font-weight: 600; letter-spacing: 0.2em; color: #C4A68C;">34 AO 40 · IGUATEMI</span>
+                  </span>
+                </span>
+              </button>
+              <sc-if value="{{sel2}}" hint-placeholder-val="{{true}}">
+                <span style="position: absolute; top: -3px; right: -3px; bottom: -3px; left: -3px; border: 3px solid #594797; border-radius: 15px; pointer-events: none;"></span>
+                <span style="position: absolute; top: 10px; right: 10px; width: 28px; height: 28px; border-radius: 99px; background: #594797; display: flex; align-items: center; justify-content: center;">
+                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 8.4 6.4 11.2l6-6.4"></path></svg>
+                </span>
+              </sc-if>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="flex-grow: 1; font-size: 12px; color: #6E6488; min-width: 0;">Pé na calçada, luz natural</span>
+              <button style="min-height: 44px; box-sizing: border-box; padding: 0 12px; border-radius: 8px; border: 1px solid #E3DEEF; background: #FFFFFF; color: #574C74; font-size: 12px; font-weight: 600; cursor: pointer;">Refazer</button>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="position: relative;">
+              <button onClick="{{pick3}}" aria-label="Selecionar opção 3" style="display: block; width: 100%; height: 248px; padding: 0; border: 1px solid #E3DEEF; border-radius: 12px; background: #C4553A; overflow: hidden; cursor: pointer;">
+                <span style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 14px; width: 100%; height: 100%; box-sizing: border-box; padding: 20px 18px; text-align: left;">
+                  <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 34px; line-height: 1.02; color: #FBF6F0;">Todo mundo tem um branco.</span>
+                  <span style="width: 44px; height: 2px; background: #F0BFAD;"></span>
+                  <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.2em; color: #F5D3C6;">O SEU AGUENTA?</span>
+                </span>
+              </button>
+              <sc-if value="{{sel3}}" hint-placeholder-val="{{true}}">
+                <span style="position: absolute; top: -3px; right: -3px; bottom: -3px; left: -3px; border: 3px solid #594797; border-radius: 15px; pointer-events: none;"></span>
+                <span style="position: absolute; top: 10px; right: 10px; width: 28px; height: 28px; border-radius: 99px; background: #594797; display: flex; align-items: center; justify-content: center;">
+                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 8.4 6.4 11.2l6-6.4"></path></svg>
+                </span>
+              </sc-if>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="flex-grow: 1; font-size: 12px; color: #6E6488; min-width: 0;">Frase grande, produto pequeno</span>
+              <button style="min-height: 44px; box-sizing: border-box; padding: 0 12px; border-radius: 8px; border: 1px solid #E3DEEF; background: #FFFFFF; color: #574C74; font-size: 12px; font-weight: 600; cursor: pointer;">Refazer</button>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="position: relative;">
+              <button onClick="{{pick4}}" aria-label="Selecionar opção 4" style="display: block; width: 100%; height: 248px; padding: 0; border: 1px solid #E3DEEF; border-radius: 12px; background: #F7F1EA; overflow: hidden; cursor: pointer;">
+                <span style="display: flex; flex-direction: column; width: 100%; height: 100%;">
+                  <span style="display: flex; flex-grow: 1;">
+                    <span style="flex-grow: 1; display: flex; align-items: center; justify-content: center; background: #F7F1EA;">
+                      <svg width="92" height="50" viewBox="0 0 120 64" aria-hidden="true"><path d="M14 40C16 26 22 18 34 15c10-3 18-1 24 4l14 12c8 6 20 10 32 12 6 1 8 4 8 7v2c0 2-2 3-4 3H18c-4 0-8-3-8-8Z" fill="#FFFFFF" stroke="#CFC0AE" stroke-width="2"></path><path d="M11 48h101" stroke="#CFC0AE" stroke-width="2.5"></path></svg>
+                    </span>
+                    <span style="flex-grow: 1; display: flex; align-items: center; justify-content: center; background: #E7D7C6;">
+                      <svg width="92" height="50" viewBox="0 0 120 64" aria-hidden="true"><path d="M14 40C16 26 22 18 34 15c10-3 18-1 24 4l14 12c8 6 20 10 32 12 6 1 8 4 8 7v2c0 2-2 3-4 3H18c-4 0-8-3-8-8Z" fill="#EFE6DA" stroke="#B09B84" stroke-width="2"></path><path d="M11 48h101" stroke="#B09B84" stroke-width="2.5"></path><path d="M30 34c6 3 12 3 17 1M52 38c7 2 13 1 18-1" stroke="#B09B84" stroke-width="1.6"></path></svg>
+                    </span>
+                  </span>
+                  <span style="display: flex; box-sizing: border-box; padding: 10px 12px 14px; flex-direction: column; gap: 4px; align-items: center; background: #F7F1EA;">
+                    <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; color: #241C17;">Depois de 30 dias</span>
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 8px; font-weight: 600; letter-spacing: 0.2em; color: #8A7360;">NOVO &nbsp;·&nbsp; USADO TODO DIA</span>
+                  </span>
+                </span>
+              </button>
+              <sc-if value="{{sel4}}" hint-placeholder-val="{{true}}">
+                <span style="position: absolute; top: -3px; right: -3px; bottom: -3px; left: -3px; border: 3px solid #594797; border-radius: 15px; pointer-events: none;"></span>
+                <span style="position: absolute; top: 10px; right: 10px; width: 28px; height: 28px; border-radius: 99px; background: #594797; display: flex; align-items: center; justify-content: center;">
+                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 8.4 6.4 11.2l6-6.4"></path></svg>
+                </span>
+              </sc-if>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="flex-grow: 1; font-size: 12px; color: #6E6488; min-width: 0;">Antes e depois de uso</span>
+              <button style="min-height: 44px; box-sizing: border-box; padding: 0 12px; border-radius: 8px; border: 1px solid #E3DEEF; background: #FFFFFF; color: #574C74; font-size: 12px; font-weight: 600; cursor: pointer;">Refazer</button>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="position: relative;">
+              <button onClick="{{pick5}}" aria-label="Selecionar opção 5" style="display: block; width: 100%; height: 248px; padding: 0; border: 1px solid #E3DEEF; border-radius: 12px; background: #FBF7F2; overflow: hidden; cursor: pointer;">
+                <span style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; width: 100%; height: 100%; box-sizing: border-box; padding: 18px;">
+                  <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 21px; color: #241C17;">Do 34 ao 40</span>
+                  <span style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px;">
+                    <span style="width: 38px; height: 38px; border-radius: 99px; background: #241C17; color: #F7F1EA; display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', Georgia, serif; font-size: 17px;">34</span>
+                    <span style="width: 38px; height: 38px; border-radius: 99px; background: #241C17; color: #F7F1EA; display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', Georgia, serif; font-size: 17px;">35</span>
+                    <span style="width: 38px; height: 38px; border-radius: 99px; background: #241C17; color: #F7F1EA; display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', Georgia, serif; font-size: 17px;">36</span>
+                    <span style="width: 38px; height: 38px; border-radius: 99px; background: #C4553A; color: #FBF6F0; display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', Georgia, serif; font-size: 17px;">37</span>
+                    <span style="width: 38px; height: 38px; border-radius: 99px; background: #241C17; color: #F7F1EA; display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', Georgia, serif; font-size: 17px;">38</span>
+                    <span style="width: 38px; height: 38px; border-radius: 99px; background: #241C17; color: #F7F1EA; display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', Georgia, serif; font-size: 17px;">39</span>
+                    <span style="width: 38px; height: 38px; border-radius: 99px; background: #241C17; color: #F7F1EA; display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', Georgia, serif; font-size: 17px;">40</span>
+                    <span style="width: 38px; height: 38px; border-radius: 99px; border: 1.5px dashed #C0AE9A; color: #8A7360; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px;">41</span>
+                  </span>
+                  <span style="font-family: 'IBM Plex Mono', monospace; font-size: 8px; font-weight: 600; letter-spacing: 0.2em; color: #8A7360; text-align: center;">37 É O ÚLTIMO PAR · CORRE</span>
+                </span>
+              </button>
+              <sc-if value="{{sel5}}" hint-placeholder-val="{{true}}">
+                <span style="position: absolute; top: -3px; right: -3px; bottom: -3px; left: -3px; border: 3px solid #594797; border-radius: 15px; pointer-events: none;"></span>
+                <span style="position: absolute; top: 10px; right: 10px; width: 28px; height: 28px; border-radius: 99px; background: #594797; display: flex; align-items: center; justify-content: center;">
+                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 8.4 6.4 11.2l6-6.4"></path></svg>
+                </span>
+              </sc-if>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="flex-grow: 1; font-size: 12px; color: #6E6488; min-width: 0;">Grade de numeração</span>
+              <button style="min-height: 44px; box-sizing: border-box; padding: 0 12px; border-radius: 8px; border: 1px solid #E3DEEF; background: #FFFFFF; color: #574C74; font-size: 12px; font-weight: 600; cursor: pointer;">Refazer</button>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="position: relative;">
+              <button onClick="{{pick6}}" aria-label="Selecionar opção 6" style="display: block; width: 100%; height: 248px; padding: 0; border: 1px solid #E3DEEF; border-radius: 12px; background: #241C17; overflow: hidden; cursor: pointer;">
+                <span style="position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; width: 100%; height: 100%; box-sizing: border-box; padding: 18px 16px;">
+                  <svg width="200" height="150" viewBox="0 0 120 90" style="position: absolute; top: 6px; left: 50%; margin-left: -100px;" aria-hidden="true">
+                    <ellipse cx="60" cy="46" rx="44" ry="34" fill="none" stroke="#4A3A2E" stroke-width="2"></ellipse>
+                    <ellipse cx="60" cy="46" rx="33" ry="25" fill="none" stroke="#5E4A3A" stroke-width="2"></ellipse>
+                    <ellipse cx="60" cy="46" rx="22" ry="16" fill="none" stroke="#7A6250" stroke-width="2"></ellipse>
+                    <path d="M28 30h64M24 46h72M28 62h64" stroke="#3A2E24" stroke-width="3"></path>
+                  </svg>
+                  <span style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 5px;">
+                    <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 24px; color: #F7F1EA; text-align: center;">Solado que não marca o piso</span>
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 8px; font-weight: 600; letter-spacing: 0.2em; color: #B09B84;">DETALHE QUE NINGUÉM MOSTRA</span>
+                  </span>
+                </span>
+              </button>
+              <sc-if value="{{sel6}}" hint-placeholder-val="{{true}}">
+                <span style="position: absolute; top: -3px; right: -3px; bottom: -3px; left: -3px; border: 3px solid #594797; border-radius: 15px; pointer-events: none;"></span>
+                <span style="position: absolute; top: 10px; right: 10px; width: 28px; height: 28px; border-radius: 99px; background: #594797; display: flex; align-items: center; justify-content: center;">
+                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 8.4 6.4 11.2l6-6.4"></path></svg>
+                </span>
+              </sc-if>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="flex-grow: 1; font-size: 12px; color: #6E6488; min-width: 0;">Detalhe do solado</span>
+              <button style="min-height: 44px; box-sizing: border-box; padding: 0 12px; border-radius: 8px; border: 1px solid #E3DEEF; background: #FFFFFF; color: #574C74; font-size: 12px; font-weight: 600; cursor: pointer;">Refazer</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: auto; background: #FFFFFF; border: 1px solid #E3DEEF; border-radius: 12px; padding: 14px 18px; display: flex; align-items: center; gap: 16px;">
+          <span style="display: flex; flex-direction: column; flex-grow: 1;">
+            <span style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 15px; letter-spacing: -0.01em;">{{escolhidas}} de 10 selecionadas</span>
+            <span style="font-size: 12px; color: #6E6488;">As aprovadas vão para o painel com legenda e horário já definidos</span>
+          </span>
+          <button style="min-height: 44px; box-sizing: border-box; padding: 0 16px; border-radius: 9px; border: 1px solid #D5CFE7; background: #FFFFFF; color: #17122A; font-size: 13.5px; font-weight: 600; cursor: pointer;">Descartar o resto</button>
+          <a href="Aprovados.dc.html" style="display: flex; align-items: center; min-height: 44px; box-sizing: border-box; padding: 0 18px; border-radius: 9px; background: #594797; color: #FFFFFF; text-decoration: none; font-size: 13.5px; font-weight: 600;">Aprovar selecionadas</a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":920}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { picked: [1, 4] };
+  }
+  toggle(id) {
+    var p = this.state.picked.slice();
+    var i = p.indexOf(id);
+    if (i >= 0) { p.splice(i, 1); } else { p.push(id); }
+    this.setState({ picked: p });
+  }
+  renderVals() {
+    var self = this;
+    var has = function (id) { return self.state.picked.indexOf(id) >= 0; };
+    var mk = function (id) { return function () { self.toggle(id); }; };
+    return {
+      sel1: has(1), sel2: has(2), sel3: has(3), sel4: has(4), sel5: has(5), sel6: has(6),
+      pick1: mk(1), pick2: mk(2), pick3: mk(3), pick4: mk(4), pick5: mk(5), pick6: mk(6),
+      escolhidas: this.state.picked.length
+    };
+  }
+}
+</script>
+</body>
+</html>
