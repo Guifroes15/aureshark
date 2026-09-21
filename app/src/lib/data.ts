@@ -207,3 +207,24 @@ export const feedMix: FeedMixItem[] = [
   { nome: "Produto e coleção", valor: "15%", largura: "15%", nivel: "baixo" },
   { nome: "Bastidor da loja", valor: "15%", largura: "15%", nivel: "baixo" },
 ];
+
+export type Creator = {
+  id: number;
+  iniciais: string;
+  nome: string;
+  cidade: string;
+  nichos: string[];
+  nota: number;
+  entregas: number;
+  prazoDias: number;
+  valor: number;
+};
+
+export const creators: Creator[] = [
+  { id: 1, iniciais: "MB", nome: "Marina B.", cidade: "Belo Horizonte, MG", nichos: ["moda", "calçados"], nota: 4.9, entregas: 23, prazoDias: 4, valor: 180 },
+  { id: 2, iniciais: "RT", nome: "Rafael T.", cidade: "Curitiba, PR", nichos: ["lifestyle", "calçados"], nota: 4.8, entregas: 17, prazoDias: 5, valor: 150 },
+  { id: 3, iniciais: "JC", nome: "Juliana C.", cidade: "Florianópolis, SC", nichos: ["moda", "praia"], nota: 4.9, entregas: 31, prazoDias: 3, valor: 220 },
+  { id: 4, iniciais: "DL", nome: "Diego L.", cidade: "Goiânia, GO", nichos: ["lifestyle", "esporte"], nota: 4.7, entregas: 12, prazoDias: 6, valor: 140 },
+  { id: 5, iniciais: "PS", nome: "Paula S.", cidade: "Recife, PE", nichos: ["moda", "infantil"], nota: 5.0, entregas: 9, prazoDias: 5, valor: 165 },
+  { id: 6, iniciais: "AV", nome: "André V.", cidade: "Campinas, SP", nichos: ["calçados", "unboxing"], nota: 4.6, entregas: 28, prazoDias: 4, valor: 195 },
+];
