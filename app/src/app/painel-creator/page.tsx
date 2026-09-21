@@ -20,8 +20,8 @@ export default function PainelCreatorPage() {
         </Link>
       </PageHeader>
 
-      <div className="flex min-h-0 flex-grow flex-col gap-[18px] px-7 py-6">
-        <div className="grid grid-cols-4 gap-3.5">
+      <div className="flex min-h-0 flex-grow flex-col gap-[18px] px-4 py-4 lg:px-7 lg:py-6">
+        <div className="grid grid-cols-2 gap-3.5 sm:grid-cols-4">
           <div className="flex flex-col gap-0.5 rounded-xl border border-line bg-surface px-[18px] py-4">
             <span className="font-display text-2xl font-extrabold tracking-[-0.03em] text-ink-tertiary">0</span>
             <span className="text-[12.5px] text-ink-secondary">convites esperando resposta</span>
@@ -40,7 +40,7 @@ export default function PainelCreatorPage() {
           </div>
         </div>
 
-        <div className="flex min-h-0 flex-grow gap-[18px]">
+        <div className="flex min-h-0 flex-grow flex-col gap-[18px] lg:flex-row">
           <section className="flex min-w-0 flex-grow flex-col gap-3.5 rounded-2xl border border-line bg-surface p-5">
             <div className="flex items-baseline gap-2.5">
               <h2 className="m-0 flex-grow font-display text-base font-bold text-ink">
@@ -57,7 +57,7 @@ export default function PainelCreatorPage() {
             </p>
           </section>
 
-          <section className="flex w-[330px] flex-shrink-0 flex-col gap-3.5">
+          <section className="flex w-full flex-shrink-0 flex-col gap-3.5 lg:w-[330px]">
             <div className="flex flex-col gap-3 rounded-2xl border border-line bg-surface p-[18px]">
               <h2 className="m-0 font-display text-[15px] font-bold text-ink">Seus ganhos</h2>
               <div className="flex flex-col gap-2.5">

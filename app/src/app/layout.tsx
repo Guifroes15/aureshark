@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Archivo, IBM_Plex_Mono, IBM_Plex_Sans, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
@@ -30,6 +30,18 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   title: "WLK Creative",
   description: "Gestão de mídia para varejo — planejamento, social media e UGC.",
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "WLK Creative",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0B2A45",
 };
 
 export default function RootLayout({

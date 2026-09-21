@@ -13,7 +13,7 @@ export default function ModelosPage() {
         </Link>
       </PageHeader>
 
-      <div className="flex flex-grow flex-col items-center justify-center gap-4 px-7 py-6">
+      <div className="flex flex-grow flex-col items-center justify-center gap-4 px-4 py-4 lg:px-7 lg:py-6">
         <span className="flex h-14 w-14 items-center justify-center rounded-full bg-tint">
           <svg width="26" height="26" viewBox="0 0 16 16" fill="none" stroke="#146B9C" strokeWidth={1.5} strokeLinecap="round" aria-hidden="true">
             <rect x="2.4" y="2.4" width="11.2" height="7" rx="1.4" />

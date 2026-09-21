@@ -88,8 +88,8 @@ export default function GerarPage() {
         </span>
       </PageHeader>
 
-      <div className="flex min-h-0 flex-grow gap-[18px] px-7 py-[22px]">
-        <section className="flex w-[348px] flex-shrink-0 flex-col gap-4 rounded-2xl border border-line bg-surface p-5">
+      <div className="flex min-h-0 flex-grow flex-col gap-[18px] px-4 py-4 lg:flex-row lg:px-7 lg:py-[22px]">
+        <section className="flex w-full flex-shrink-0 flex-col gap-4 rounded-2xl border border-line bg-surface p-5 lg:w-[348px]">
           <h2 className="m-0 font-display text-[15px] font-bold tracking-[-0.01em] text-ink">
             Sobre esta publicação
           </h2>
@@ -183,7 +183,7 @@ export default function GerarPage() {
             </button>
           ) : (
             <>
-              <div className="grid grid-cols-3 gap-3.5 overflow-y-auto">
+              <div className="grid grid-cols-2 gap-3.5 overflow-y-auto sm:grid-cols-3">
                 {rascunhos.map((r) => (
                   <div key={r.id} className="flex flex-col gap-2">
                     <div className="relative">
@@ -234,7 +234,7 @@ export default function GerarPage() {
                 ))}
               </div>
 
-              <div className="mt-auto flex items-center gap-4 rounded-xl border border-line bg-surface px-[18px] py-3.5">
+              <div className="mt-auto flex flex-wrap items-center gap-4 rounded-xl border border-line bg-surface px-[18px] py-3.5">
                 <span className="flex flex-grow flex-col">
                   <span className="font-display text-[15px] font-bold tracking-[-0.01em] text-ink">
                     {selecionados} selecionada{selecionados === 1 ? "" : "s"}

@@ -67,7 +67,7 @@ export default function CreatorsPage() {
   return (
     <>
       <PageHeader eyebrow="MARKETPLACE DE UGC" title="Descobrir creators">
-        <div className="flex min-h-[44px] w-[300px] items-center gap-2 rounded-[9px] border border-[#D5CFE7] bg-surface px-3.5">
+        <div className="flex min-h-[44px] w-full items-center gap-2 rounded-[9px] border border-[#D5CFE7] bg-surface px-3.5 sm:w-[300px]">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#6B7A8C" strokeWidth={1.7} strokeLinecap="round" aria-hidden="true">
             <circle cx="7.2" cy="7.2" r="4.4" />
             <path d="M10.6 10.6 13.6 13.6" />
@@ -92,8 +92,8 @@ export default function CreatorsPage() {
         </Link>
       </PageHeader>
 
-      <div className="flex min-h-0 flex-grow gap-[18px] px-7 py-[22px]">
-        <section className="flex w-[244px] flex-shrink-0 flex-col gap-[18px] rounded-2xl border border-line bg-surface p-[18px]">
+      <div className="flex min-h-0 flex-grow flex-col gap-[18px] px-4 py-4 lg:flex-row lg:px-7 lg:py-[22px]">
+        <section className="flex w-full flex-shrink-0 flex-col gap-[18px] rounded-2xl border border-line bg-surface p-[18px] lg:w-[244px]">
           <h2 className="m-0 font-display text-sm font-bold text-ink">Filtros</h2>
 
           <div className="flex flex-col gap-2.5">
@@ -209,7 +209,7 @@ export default function CreatorsPage() {
             </span>
           </div>
 
-          <div className="grid grid-cols-3 gap-3.5">
+          <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 xl:grid-cols-3">
             {filtrados.map((c) => (
               <div key={c.id} className="flex flex-col gap-3 rounded-[13px] border border-line bg-surface p-[15px]">
                 <div className="flex items-center gap-2.5">
@@ -264,12 +264,12 @@ export default function CreatorsPage() {
             ))}
 
             {filtrados.length === 0 && creators.length === 0 && (
-              <p className="col-span-3 py-8 text-center text-sm text-ink-tertiary">
+              <p className="col-span-full py-8 text-center text-sm text-ink-tertiary">
                 Nenhum creator cadastrado ainda no marketplace.
               </p>
             )}
             {filtrados.length === 0 && creators.length > 0 && (
-              <p className="col-span-3 py-8 text-center text-sm text-ink-tertiary">
+              <p className="col-span-full py-8 text-center text-sm text-ink-tertiary">
                 Nenhum creator combina com esses filtros. Tente ampliar a busca.
               </p>
             )}

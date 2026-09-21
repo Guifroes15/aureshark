@@ -31,7 +31,7 @@ export default function InicioPage() {
         </Link>
       </PageHeader>
 
-      <div className="flex min-h-0 flex-grow flex-col gap-[18px] px-7 py-6">
+      <div className="flex min-h-0 flex-grow flex-col gap-[18px] px-4 py-4 lg:px-7 lg:py-6">
         <div className="grid grid-cols-2 gap-3.5 lg:grid-cols-4">
           <StatCard value={hidratado ? aguardando.length : 0} label="artes esperando sua aprovação" tone="primary" />
           <StatCard value={hidratado ? agendadas.length : 0} label="publicações agendadas" />

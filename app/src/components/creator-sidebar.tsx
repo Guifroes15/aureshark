@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -78,69 +79,98 @@ const NAV: NavItem[] = [
 
 export default function CreatorSidebar() {
   const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <aside className="flex w-[250px] flex-shrink-0 flex-col gap-[22px] border-r border-line bg-sidebar-bg px-[14px] py-5">
-      <div className="flex flex-col gap-1.5 px-2 py-1">
-        <Image
-          src="/logo-wlk-creative.jpg"
-          alt="WLK Creative"
-          width={902}
-          height={902}
-          className="block h-auto w-11"
-          priority
-        />
-        <span className="pl-0.5 font-mono text-[9px] font-semibold tracking-[0.14em] text-ink-tertiary">
+    <>
+      <div className="fixed inset-x-0 top-0 z-30 flex h-14 items-center gap-3 border-b border-white/10 bg-sidebar-bg px-4 lg:hidden">
+        <button
+          onClick={() => setMobileOpen(true)}
+          aria-label="Abrir menu"
+          className="flex h-9 w-9 items-center justify-center rounded-lg text-sidebar-text"
+        >
+          <svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" aria-hidden="true">
+            <path d="M2.4 4.4h11.2M2.4 8h11.2M2.4 11.6h11.2" />
+          </svg>
+        </button>
+        <Image src="/logo-wlk-creative.jpg" alt="WLK Creative" width={902} height={902} className="h-8 w-8 rounded-full" priority />
+        <span className="font-mono text-[10px] font-semibold tracking-[0.14em] text-sidebar-muted">
           PORTAL DO CREATOR
         </span>
       </div>
 
-      <nav className="flex flex-col gap-0.5">
-        {NAV.map((item) => {
-          const active = pathname === item.href;
-          return (
-            <Link
-              key={item.label}
-              href={item.href}
-              className={`flex min-h-[44px] items-center gap-2.5 rounded-[9px] px-2.5 text-[13.5px] no-underline ${
-                active
-                  ? "bg-sidebar-active font-semibold text-primary"
-                  : "font-normal text-sidebar-text hover:bg-[#F2F7FC] hover:text-primary"
-              }`}
-            >
-              <span className={active ? "text-primary" : "text-accent"}>{item.icon}</span>
-              <span className="flex-grow">{item.label}</span>
-              {item.badge && (
-                <span className="rounded-full bg-accent px-1.5 py-0.5 font-mono text-[10px] font-semibold text-white">
-                  {item.badge}
-                </span>
-              )}
-            </Link>
-          );
-        })}
-      </nav>
+      {mobileOpen && (
+        <div className="fixed inset-0 z-40 bg-black/40 lg:hidden" onClick={() => setMobileOpen(false)} />
+      )}
 
-      <div className="mt-auto flex flex-col gap-3">
-        <Link
-          href="/"
-          className="flex min-h-[44px] items-center gap-[9px] rounded-[9px] border border-line px-3 text-[12.5px] font-medium text-ink-secondary no-underline"
-        >
-          <ExternalArrowIcon className="h-[15px] w-[15px] shrink-0" />
-          Ver o lado da loja
-        </Link>
-        <div className="flex items-center gap-2.5 border-t border-line p-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-tint text-accent">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" aria-hidden="true">
-              <circle cx="8" cy="5.8" r="2.8" />
-              <path d="M3 13.4c0-2.4 2.2-4 5-4s5 1.6 5 4" />
-            </svg>
-          </span>
-          <span className="flex flex-grow flex-col">
-            <span className="text-[12.5px] font-semibold text-ink">Meu perfil</span>
-            <span className="text-[11px] text-ink-tertiary">Cadastro incompleto</span>
+      <aside
+        className={`fixed inset-y-0 left-0 z-50 flex w-[250px] flex-shrink-0 flex-col gap-[22px] bg-sidebar-bg px-[14px] py-5 transition-transform duration-200 lg:static lg:translate-x-0 ${
+          mobileOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="flex flex-col gap-1.5 px-2 py-1">
+          <Image
+            src="/logo-wlk-creative.jpg"
+            alt="WLK Creative"
+            width={902}
+            height={902}
+            className="block h-auto w-11 rounded-full"
+            priority
+          />
+          <span className="pl-0.5 font-mono text-[9px] font-semibold tracking-[0.14em] text-sidebar-muted">
+            PORTAL DO CREATOR
           </span>
         </div>
-      </div>
-    </aside>
+
+        <nav className="flex flex-col gap-0.5 overflow-y-auto">
+          {NAV.map((item) => {
+            const active = pathname === item.href;
+            return (
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={() => setMobileOpen(false)}
+                className={`flex min-h-[44px] items-center gap-2.5 rounded-[9px] px-2.5 text-[13.5px] no-underline ${
+                  active
+                    ? "bg-sidebar-active font-semibold text-white"
+                    : "font-normal text-sidebar-text hover:bg-white/5 hover:text-white"
+                }`}
+              >
+                <span className="text-accent">{item.icon}</span>
+                <span className="flex-grow">{item.label}</span>
+                {item.badge && (
+                  <span className="rounded-full bg-accent px-1.5 py-0.5 font-mono text-[10px] font-semibold text-white">
+                    {item.badge}
+                  </span>
+                )}
+              </Link>
+            );
+          })}
+        </nav>
+
+        <div className="mt-auto flex flex-col gap-3">
+          <Link
+            href="/"
+            onClick={() => setMobileOpen(false)}
+            className="flex min-h-[44px] items-center gap-[9px] rounded-[9px] border border-white/15 px-3 text-[12.5px] font-medium text-sidebar-text no-underline"
+          >
+            <ExternalArrowIcon className="h-[15px] w-[15px] shrink-0" />
+            Ver o lado da loja
+          </Link>
+          <div className="flex items-center gap-2.5 border-t border-white/10 p-2">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-accent">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" aria-hidden="true">
+                <circle cx="8" cy="5.8" r="2.8" />
+                <path d="M3 13.4c0-2.4 2.2-4 5-4s5 1.6 5 4" />
+              </svg>
+            </span>
+            <span className="flex flex-grow flex-col">
+              <span className="text-[12.5px] font-semibold text-white">Meu perfil</span>
+              <span className="text-[11px] text-sidebar-muted">Cadastro incompleto</span>
+            </span>
+          </div>
+        </div>
+      </aside>
+    </>
   );
 }

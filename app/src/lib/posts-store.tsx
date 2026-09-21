@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
+import { useStore } from "@/lib/store-provider";
 
 export type PostStatus = "aguardando" | "agendada" | "publicada";
 export type PostTipo = "Estático" | "Carrossel" | "Vídeo";
@@ -34,30 +35,38 @@ type PostsContextValue = {
 
 const PostsContext = createContext<PostsContextValue | null>(null);
 
-const STORAGE_KEY = "wlk-creative-posts";
+function storageKey(lojaId: string | null) {
+  return `wlk-creative-posts-${lojaId ?? "sem-loja"}`;
+}
 
 export function PostsProvider({ children }: { children: React.ReactNode }) {
+  const { lojaAtiva, hidratado: lojaHidratada } = useStore();
+  const lojaId = lojaAtiva?.id ?? null;
+
   const [posts, setPosts] = useState<Post[]>([]);
   const [hidratado, setHidratado] = useState(false);
+  const [lojaCarregadaId, setLojaCarregadaId] = useState<string | null | undefined>(undefined);
 
   useEffect(() => {
+    if (!lojaHidratada) return;
     try {
-      const raw = window.localStorage.getItem(STORAGE_KEY);
-      if (raw) setPosts(JSON.parse(raw));
+      const raw = window.localStorage.getItem(storageKey(lojaId));
+      setPosts(raw ? JSON.parse(raw) : []);
     } catch {
-      // localStorage indisponível — segue com estado vazio
+      setPosts([]);
     }
+    setLojaCarregadaId(lojaId);
     setHidratado(true);
-  }, []);
+  }, [lojaId, lojaHidratada]);
 
   useEffect(() => {
-    if (!hidratado) return;
+    if (!hidratado || lojaCarregadaId !== lojaId) return;
     try {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
+      window.localStorage.setItem(storageKey(lojaId), JSON.stringify(posts));
     } catch {
       // quota excedida ou indisponível — ignora persistência
     }
-  }, [posts, hidratado]);
+  }, [posts, hidratado, lojaId, lojaCarregadaId]);
 
   function addPosts(novos: NovoPost[]) {
     const agora = Date.now();

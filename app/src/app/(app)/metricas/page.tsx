@@ -15,8 +15,8 @@ export default function MetricasPage() {
         </Link>
       </PageHeader>
 
-      <div className="flex min-h-0 flex-grow flex-col gap-4 px-7 py-[22px]">
-        <div className="grid grid-cols-4 gap-3.5">
+      <div className="flex min-h-0 flex-grow flex-col gap-4 px-4 py-4 lg:px-7 lg:py-[22px]">
+        <div className="grid grid-cols-2 gap-3.5 sm:grid-cols-4">
           {KPIS.map((k) => (
             <div key={k} className="flex flex-col gap-1 rounded-xl border border-line bg-surface px-[18px] py-[15px]">
               <span className="text-[12.5px] text-ink-secondary">{k}</span>

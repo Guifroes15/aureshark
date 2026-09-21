@@ -55,7 +55,7 @@ export default function PlanejamentoPage() {
       </PageHeader>
 
       {!gerado ? (
-        <div className="flex flex-grow flex-col items-center justify-center gap-4 px-7 py-6">
+        <div className="flex flex-grow flex-col items-center justify-center gap-4 px-4 py-4 lg:px-7 lg:py-6">
           <span className="flex h-14 w-14 items-center justify-center rounded-full bg-tint">
             <svg width="26" height="26" viewBox="0 0 16 16" fill="none" stroke="#146B9C" strokeWidth={1.5} strokeLinecap="round" aria-hidden="true">
               <rect x="2.3" y="3.4" width="11.4" height="10.2" rx="1.4" />
@@ -78,8 +78,8 @@ export default function PlanejamentoPage() {
           </button>
         </div>
       ) : (
-        <div className="flex min-h-0 flex-grow flex-col gap-4 overflow-y-auto px-7 py-[22px]">
-          <div className="grid grid-cols-3 gap-4">
+        <div className="flex min-h-0 flex-grow flex-col gap-4 overflow-y-auto px-4 py-4 lg:px-7 lg:py-[22px]">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {porMes.map(({ mes, itens }) => (
               <section key={mes} className="flex flex-col gap-2.5 rounded-2xl border border-line bg-surface p-4">
                 <h2 className="m-0 font-display text-sm font-bold text-ink">

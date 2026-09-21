@@ -11,9 +11,10 @@ const config: Config = {
         },
         accent: "#2AA8DE",
         sidebar: {
-          bg: "#FFFFFF",
-          active: "#E7F2FC",
-          text: "#5B6B7C",
+          bg: "#0B2A45",
+          active: "#153F63",
+          text: "#9FC2DA",
+          muted: "#5D7FA0",
         },
         app: "#F5F9FC",
         surface: "#FFFFFF",

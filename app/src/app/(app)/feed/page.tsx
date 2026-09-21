@@ -49,9 +49,9 @@ export default function FeedPage() {
         </button>
       </PageHeader>
 
-      <div className="flex min-h-0 flex-grow gap-6 px-7 py-[22px]">
-        <section className="flex w-[392px] flex-shrink-0 flex-col items-center gap-2.5">
-          <div className="flex h-[840px] w-[392px] flex-col overflow-hidden rounded-[40px] border-[9px] border-ink bg-surface">
+      <div className="flex min-h-0 flex-grow flex-col gap-6 px-4 py-4 lg:flex-row lg:px-7 lg:py-[22px]">
+        <section className="flex w-full flex-shrink-0 flex-col items-center gap-2.5 lg:w-[392px]">
+          <div className="flex h-[840px] w-full max-w-[392px] flex-col overflow-hidden rounded-[40px] border-[9px] border-ink bg-surface">
             <div className="flex flex-shrink-0 items-center gap-3 px-4 pb-2.5 pt-3.5">
               <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="#101826" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M9.6 3.4 5 8l4.6 4.6" />

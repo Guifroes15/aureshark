@@ -99,35 +99,37 @@ export default function SejaCreatorPage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-surface">
-      <header className="flex h-[74px] flex-shrink-0 items-center gap-6 border-b border-line px-[60px]">
-        <Image src="/logo-wlk-creative.jpg" alt="WLK Creative" width={40} height={40} className="h-10 w-10 rounded-full" />
+      <header className="flex h-[74px] flex-shrink-0 items-center gap-4 border-b border-line px-4 sm:gap-6 sm:px-8 lg:px-[60px]">
+        <Image src="/logo-wlk-creative.jpg" alt="WLK Creative" width={40} height={40} className="h-10 w-10 flex-shrink-0 rounded-full" />
         <span className="flex-grow" />
-        <a href="#como" className="text-[13.5px] font-medium text-ink-secondary no-underline">
-          Como funciona
-        </a>
-        <a href="#cadastro" className="text-[13.5px] font-medium text-ink-secondary no-underline">
-          Quanto você ganha
-        </a>
-        <Link href="/" className="text-[13.5px] font-medium text-ink-secondary no-underline">
-          Sou loja
-        </Link>
+        <div className="hidden items-center gap-6 md:flex">
+          <a href="#como" className="text-[13.5px] font-medium text-ink-secondary no-underline">
+            Como funciona
+          </a>
+          <a href="#cadastro" className="text-[13.5px] font-medium text-ink-secondary no-underline">
+            Quanto você ganha
+          </a>
+          <Link href="/" className="text-[13.5px] font-medium text-ink-secondary no-underline">
+            Sou loja
+          </Link>
+        </div>
         <Link
           href="/painel-creator"
-          className="flex min-h-[44px] items-center rounded-[9px] border border-[#D5CFE7] px-4 text-[13.5px] font-semibold text-ink no-underline"
+          className="flex min-h-[44px] flex-shrink-0 items-center rounded-[9px] border border-[#D5CFE7] px-4 text-[13.5px] font-semibold text-ink no-underline"
         >
           Entrar
         </Link>
       </header>
 
-      <section className="flex flex-shrink-0 items-center gap-14 border-b border-line bg-[#FAFBFD] px-[60px] py-14">
+      <section className="flex flex-shrink-0 flex-col items-center gap-10 border-b border-line bg-[#FAFBFD] px-4 py-10 sm:px-8 lg:flex-row lg:gap-14 lg:px-[60px] lg:py-14">
         <div className="flex min-w-0 flex-grow flex-col gap-5">
           <span className="font-mono text-[11px] font-semibold tracking-[0.14em] text-primary">
             PARA QUEM GRAVA VÍDEO
           </span>
-          <h1 className="m-0 max-w-[19ch] font-display text-[50px] font-extrabold leading-[1.04] tracking-[-0.03em] text-ink">
+          <h1 className="m-0 max-w-[19ch] font-display text-[34px] font-extrabold leading-[1.08] tracking-[-0.03em] text-ink sm:text-[42px] lg:text-[50px] lg:leading-[1.04]">
             Grave em casa. Receba 100% do combinado.
           </h1>
-          <p className="m-0 max-w-[54ch] text-[17px] leading-[1.6] text-ink-secondary">
+          <p className="m-0 max-w-[54ch] text-[15px] leading-[1.6] text-ink-secondary sm:text-[17px]">
             Lojas de todo o Brasil abrem campanhas aqui e mandam o produto na sua casa. Você grava,
             entrega pela plataforma e recebe quando a marca aprova. A taxa de serviço é cobrada da
             loja, não de você.
@@ -149,7 +151,7 @@ export default function SejaCreatorPage() {
               </span>
             ))}
           </div>
-          <div className="flex items-center gap-3 pt-1.5">
+          <div className="flex flex-wrap items-center gap-3 pt-1.5">
             <a
               href="#cadastro"
               className="flex min-h-[52px] items-center rounded-[10px] bg-primary px-[26px] text-[15px] font-semibold text-white no-underline hover:bg-primary-hover"
@@ -162,20 +164,20 @@ export default function SejaCreatorPage() {
           </div>
         </div>
 
-        <div className="grid w-[430px] flex-shrink-0 grid-cols-3 gap-2.5">
+        <div className="grid w-full max-w-[430px] flex-shrink-0 grid-cols-3 gap-2 sm:gap-2.5">
           {HERO_THUMBS.map((t, i) => (
-            <span key={i} className={`h-[190px] ${t.offset ? "mt-6" : ""}`}>
+            <span key={i} className={`h-[110px] sm:h-[150px] lg:h-[190px] ${t.offset ? "mt-4 sm:mt-6" : ""}`}>
               <VideoGlyph bg={t.bg} icon={t.icon} />
             </span>
           ))}
         </div>
       </section>
 
-      <section id="como" className="flex flex-shrink-0 flex-col gap-5 px-[60px] py-11">
-        <h2 className="m-0 font-display text-[26px] font-bold tracking-[-0.02em] text-ink">
+      <section id="como" className="flex flex-shrink-0 flex-col gap-5 px-4 py-9 sm:px-8 lg:px-[60px] lg:py-11">
+        <h2 className="m-0 font-display text-[22px] font-bold tracking-[-0.02em] text-ink sm:text-[26px]">
           Como funciona
         </h2>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {PASSOS.map((p) => (
             <div key={p.n} className="flex flex-col gap-2.5 rounded-[13px] border border-line p-5">
               <span className="font-mono text-[11px] font-semibold tracking-[0.1em] text-primary">
@@ -190,7 +192,7 @@ export default function SejaCreatorPage() {
         </div>
       </section>
 
-      <section className="grid flex-shrink-0 grid-cols-3 gap-4 px-[60px] pb-11">
+      <section className="grid flex-shrink-0 grid-cols-1 gap-4 px-4 pb-9 sm:grid-cols-3 sm:px-8 lg:px-[60px] lg:pb-11">
         <div className="flex flex-col gap-1 rounded-[13px] bg-tint p-[22px]">
           <span className="font-display text-[30px] font-extrabold tracking-[-0.03em] text-tint-fg">
             Você define
@@ -217,9 +219,9 @@ export default function SejaCreatorPage() {
         </div>
       </section>
 
-      <section id="cadastro" className="flex flex-grow flex-col gap-5 border-t border-line bg-[#FAFBFD] px-[60px] py-11">
-        <div className="flex items-baseline gap-3.5">
-          <h2 className="m-0 font-display text-[26px] font-bold tracking-[-0.02em] text-ink">
+      <section id="cadastro" className="flex flex-grow flex-col gap-5 border-t border-line bg-[#FAFBFD] px-4 py-9 sm:px-8 lg:px-[60px] lg:py-11">
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-3.5">
+          <h2 className="m-0 font-display text-[22px] font-bold tracking-[-0.02em] text-ink sm:text-[26px]">
             Cadastro de creator
           </h2>
           <span className="text-[13.5px] text-ink-tertiary">
@@ -241,11 +243,11 @@ export default function SejaCreatorPage() {
             </p>
           </div>
         ) : (
-          <div className="flex items-stretch gap-5">
-            <div className="flex min-w-0 flex-grow flex-col gap-[18px] rounded-2xl border border-line bg-surface p-6">
+          <div className="flex flex-col items-stretch gap-5 lg:flex-row">
+            <div className="flex min-w-0 flex-grow flex-col gap-[18px] rounded-2xl border border-line bg-surface p-5 sm:p-6">
               <h3 className="m-0 font-display text-[15px] font-bold text-ink">Seus dados</h3>
 
-              <div className="grid grid-cols-2 gap-3.5">
+              <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
                 <span className="flex flex-col gap-1.5">
                   <label htmlFor="nome" className="text-[12.5px] font-semibold text-ink-secondary">
                     Nome completo
@@ -319,7 +321,7 @@ export default function SejaCreatorPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-3.5">
+              <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
                 <span className="flex flex-col gap-1.5">
                   <label htmlFor="valor" className="text-[12.5px] font-semibold text-ink-secondary">
                     Seu valor por vídeo
@@ -388,12 +390,12 @@ export default function SejaCreatorPage() {
               </button>
             </div>
 
-            <div className="flex w-[396px] flex-shrink-0 flex-col gap-4">
+            <div className="flex w-full flex-shrink-0 flex-col gap-4 lg:w-[396px]">
               <div className="flex flex-col gap-3.5 rounded-2xl border border-line bg-surface p-[22px]">
                 <h3 className="m-0 font-display text-[15px] font-bold text-ink">
                   Portfólio — mínimo 5 vídeos
                 </h3>
-                <div className="grid grid-cols-5 gap-1.5">
+                <div className="grid grid-cols-3 gap-1.5 sm:grid-cols-5">
                   {Array.from({ length: 5 }, (_, i) => i).map((i) => {
                     const preenchido = i < videosEnviados;
                     return preenchido ? (

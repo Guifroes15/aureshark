@@ -54,8 +54,8 @@ export default function AprovadosPage() {
       ) : !hidratado ? (
         <div className="flex flex-grow items-center justify-center px-7 py-6" />
       ) : (
-        <div className="flex min-h-0 flex-grow flex-col gap-4 px-7 py-[22px]">
-          <div className="flex flex-grow gap-4">
+        <div className="flex min-h-0 flex-grow flex-col gap-4 px-4 py-4 lg:px-7 lg:py-[22px]">
+          <div className="flex flex-grow flex-col gap-4 lg:flex-row">
             <section className="flex min-w-0 flex-grow flex-col gap-2.5 rounded-2xl border border-line bg-surface p-4">
               <div className="flex items-center gap-2 border-b border-[#E9EEF4] pb-2.5">
                 <span className="h-2 w-2 rounded-full bg-warning" />

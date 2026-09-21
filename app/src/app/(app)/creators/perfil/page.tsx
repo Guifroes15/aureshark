@@ -30,7 +30,7 @@ export default function PerfilCreatorPage() {
         </span>
       </header>
 
-      <div className="flex min-h-0 flex-grow gap-[18px] px-7 py-[22px]">
+      <div className="flex min-h-0 flex-grow flex-col gap-[18px] px-4 py-4 lg:flex-row lg:px-7 lg:py-[22px]">
         <section className="flex min-w-0 flex-grow flex-col gap-4 rounded-2xl border border-line bg-surface p-[22px]">
           <div className="flex items-start gap-6">
             <span className="flex h-[104px] w-[104px] flex-shrink-0 items-center justify-center rounded-full bg-tint text-accent">
@@ -91,7 +91,7 @@ export default function PerfilCreatorPage() {
           </div>
 
           {tab === "Portfólio" && (
-            <div className="grid grid-cols-5 gap-3">
+            <div className="grid grid-cols-3 gap-3 sm:grid-cols-5">
               {Array.from({ length: 5 }, (_, i) => (
                 <button
                   key={i}
@@ -103,7 +103,7 @@ export default function PerfilCreatorPage() {
                   <span className="text-[11px]">Enviar vídeo</span>
                 </button>
               ))}
-              <p className="col-span-5 m-0 text-xs text-ink-tertiary">
+              <p className="col-span-full m-0 text-xs text-ink-tertiary">
                 0 de 5 vídeos enviados. O mínimo pra entrar no marketplace é 5 vídeos e 3 marcas
                 atendidas.
               </p>
@@ -123,7 +123,7 @@ export default function PerfilCreatorPage() {
           )}
         </section>
 
-        <section className="flex w-[336px] flex-shrink-0 flex-col gap-3.5">
+        <section className="flex w-full flex-shrink-0 flex-col gap-3.5 lg:w-[336px]">
           <div className="flex flex-col gap-2.5 rounded-2xl border border-line bg-surface p-[18px]">
             <h2 className="m-0 font-display text-[15px] font-bold text-ink">Marcas que já atendeu</h2>
             <p className="m-0 text-xs text-ink-tertiary">

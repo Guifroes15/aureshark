@@ -6,7 +6,7 @@ type PageHeaderProps = {
 
 export default function PageHeader({ eyebrow, title, children }: PageHeaderProps) {
   return (
-    <header className="flex h-[70px] flex-shrink-0 items-center gap-4 border-b border-line bg-surface px-7">
+    <header className="flex min-h-[70px] flex-shrink-0 flex-wrap items-center gap-3 border-b border-line bg-surface px-4 py-3 lg:gap-4 lg:px-7">
       <span className="flex flex-grow flex-col">
         <span className="font-mono text-[10px] font-semibold tracking-[0.12em] text-ink-tertiary">
           {eyebrow}
@@ -15,7 +15,7 @@ export default function PageHeader({ eyebrow, title, children }: PageHeaderProps
           {title}
         </span>
       </span>
-      {children}
+      <div className="flex flex-wrap items-center gap-2.5 lg:gap-3">{children}</div>
     </header>
   );
 }
