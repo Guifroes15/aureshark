@@ -149,3 +149,61 @@ export const publicadas: Publicada[] = [
   { id: 202, titulo: "Chegou tamanho 41", metrica: "Sábado · 19 respostas no direct" },
   { id: 203, titulo: "Promoção de meia-estação", metrica: "Sexta · melhor alcance da semana" },
 ];
+
+export type FeedGridCell =
+  | "produto-claro"
+  | "frase-italica"
+  | "foto-calcada"
+  | "solado"
+  | "grade-numeracao"
+  | "bastidor"
+  | "mocassim"
+  | "ultima-semana"
+  | "depoimento";
+
+export type FeedGridItem = {
+  id: number;
+  cell: FeedGridCell;
+  status: "agendada" | "publicada";
+};
+
+export const feedGrid: FeedGridItem[] = [
+  { id: 1, cell: "produto-claro", status: "agendada" },
+  { id: 2, cell: "frase-italica", status: "agendada" },
+  { id: 3, cell: "foto-calcada", status: "agendada" },
+  { id: 4, cell: "solado", status: "agendada" },
+  { id: 5, cell: "grade-numeracao", status: "agendada" },
+  { id: 6, cell: "bastidor", status: "publicada" },
+  { id: 7, cell: "mocassim", status: "publicada" },
+  { id: 8, cell: "ultima-semana", status: "publicada" },
+  { id: 9, cell: "depoimento", status: "publicada" },
+];
+
+export type FeedFilaItem = {
+  id: number;
+  titulo: string;
+  quando: string;
+  formato: string;
+};
+
+export const feedFilaInicial: FeedFilaItem[] = [
+  { id: 1, titulo: "Sandália de festa — combinações", quando: "Hoje às 19h", formato: "CARROSSEL" },
+  { id: 2, titulo: "Numeração 34 ao 40 chegou", quando: "Quinta, 24/09 às 11h", formato: "ESTÁTICO" },
+  { id: 3, titulo: "Depoimento da cliente Rafa", quando: "Quinta, 24/09 às 20h", formato: "REELS" },
+  { id: 4, titulo: "Combo dois pares infantil", quando: "Sexta, 25/09 às 13h", formato: "ESTÁTICO" },
+  { id: 5, titulo: "Enquete: qual cor primeiro?", quando: "Sexta, 25/09 às 18h", formato: "ESTÁTICO" },
+];
+
+export type FeedMixItem = {
+  nome: string;
+  valor: string;
+  largura: string;
+  nivel: "alto" | "medio" | "baixo";
+};
+
+export const feedMix: FeedMixItem[] = [
+  { nome: "Oferta e preço", valor: "45%", largura: "45%", nivel: "alto" },
+  { nome: "Prova social", valor: "25%", largura: "25%", nivel: "medio" },
+  { nome: "Produto e coleção", valor: "15%", largura: "15%", nivel: "baixo" },
+  { nome: "Bastidor da loja", valor: "15%", largura: "15%", nivel: "baixo" },
+];
