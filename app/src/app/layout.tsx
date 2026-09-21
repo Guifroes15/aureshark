@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import { Archivo, IBM_Plex_Mono, IBM_Plex_Sans, Instrument_Serif } from "next/font/google";
 import Sidebar from "@/components/sidebar";
 import "./globals.css";
 
@@ -21,6 +21,13 @@ const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
 });
 
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
+});
+
 export const metadata: Metadata = {
   title: "WLK Creative",
   description: "Gestão de mídia para varejo — planejamento, social media e UGC.",
@@ -34,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${archivo.variable} ${plexSans.variable} ${plexMono.variable} font-sans antialiased`}
+        className={`${archivo.variable} ${plexSans.variable} ${plexMono.variable} ${instrumentSerif.variable} font-sans antialiased`}
       >
         <div className="flex h-screen min-h-screen overflow-hidden bg-app">
           <Sidebar />

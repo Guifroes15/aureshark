@@ -31,6 +31,7 @@ const config: Config = {
         sans: ["var(--font-plex-sans)", "system-ui", "sans-serif"],
         display: ["var(--font-archivo)", "system-ui", "sans-serif"],
         mono: ["var(--font-plex-mono)", "ui-monospace", "monospace"],
+        serif: ["var(--font-instrument-serif)", "Georgia", "serif"],
       },
     },
   },
