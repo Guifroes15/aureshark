@@ -228,3 +228,100 @@ export const creators: Creator[] = [
   { id: 5, iniciais: "PS", nome: "Paula S.", cidade: "Recife, PE", nichos: ["moda", "infantil"], nota: 5.0, entregas: 9, prazoDias: 5, valor: 165 },
   { id: 6, iniciais: "AV", nome: "André V.", cidade: "Campinas, SP", nichos: ["calçados", "unboxing"], nota: 4.6, entregas: 28, prazoDias: 4, valor: 195 },
 ];
+
+export type PeriodoMetricas = "30 dias" | "7 dias" | "Este ano";
+
+export type Kpi = { nome: string; valor: string; delta: string; base: string };
+export type PontoAlcance = { label: string; valor: number };
+
+export type DadosMetricas = {
+  kpis: Kpi[];
+  alcance: PontoAlcance[];
+  legendaAlcance: string;
+};
+
+export const metricasPorPeriodo: Record<PeriodoMetricas, DadosMetricas> = {
+  "30 dias": {
+    kpis: [
+      { nome: "Alcance", valor: "84,2 mil", delta: "18%", base: "contra 71,4 mil no período anterior" },
+      { nome: "Interações", valor: "6.410", delta: "24%", base: "contra 5.170 no período anterior" },
+      { nome: "Salvamentos", valor: "1.208", delta: "61%", base: "contra 750 no período anterior" },
+      { nome: "Visitas ao perfil", valor: "3.940", delta: "12%", base: "contra 3.517 no período anterior" },
+    ],
+    alcance: [
+      { label: "28/07", valor: 12100 },
+      { label: "04/08", valor: 14900 },
+      { label: "11/08", valor: 13300 },
+      { label: "18/08", valor: 16800 },
+      { label: "25/08", valor: 15400 },
+      { label: "01/09", valor: 18800 },
+      { label: "08/09", valor: 21400 },
+      { label: "15/09", valor: 24300 },
+    ],
+    legendaAlcance:
+      "Oito semanas. A virada é a semana em que a plataforma passou a montar o calendário.",
+  },
+  "7 dias": {
+    kpis: [
+      { nome: "Alcance", valor: "21,6 mil", delta: "9%", base: "contra 19,8 mil na semana anterior" },
+      { nome: "Interações", valor: "1.540", delta: "14%", base: "contra 1.350 na semana anterior" },
+      { nome: "Salvamentos", valor: "312", delta: "22%", base: "contra 256 na semana anterior" },
+      { nome: "Visitas ao perfil", valor: "980", delta: "6%", base: "contra 924 na semana anterior" },
+    ],
+    alcance: [
+      { label: "Seg", valor: 2600 },
+      { label: "Ter", valor: 3100 },
+      { label: "Qua", valor: 2900 },
+      { label: "Qui", valor: 3400 },
+      { label: "Sex", valor: 3800 },
+      { label: "Sáb", valor: 2700 },
+      { label: "Dom", valor: 3100 },
+    ],
+    legendaAlcance: "Últimos 7 dias contra os 7 dias anteriores.",
+  },
+  "Este ano": {
+    kpis: [
+      { nome: "Alcance", valor: "612 mil", delta: "34%", base: "contra 457 mil no ano anterior" },
+      { nome: "Interações", valor: "48.900", delta: "41%", base: "contra 34.700 no ano anterior" },
+      { nome: "Salvamentos", valor: "8.760", delta: "77%", base: "contra 4.950 no ano anterior" },
+      { nome: "Visitas ao perfil", valor: "31.200", delta: "19%", base: "contra 26.200 no ano anterior" },
+    ],
+    alcance: [
+      { label: "JAN", valor: 34000 },
+      { label: "FEV", valor: 38000 },
+      { label: "MAR", valor: 41000 },
+      { label: "ABR", valor: 45000 },
+      { label: "MAI", valor: 52000 },
+      { label: "JUN", valor: 58000 },
+      { label: "JUL", valor: 61000 },
+      { label: "AGO", valor: 74000 },
+      { label: "SET", valor: 89000 },
+    ],
+    legendaAlcance: "Mês a mês desde janeiro. A plataforma entrou em operação em julho.",
+  },
+};
+
+export const metricasTop = [
+  {
+    titulo: "Calço e ando na rua",
+    origem: "Vídeo de creator · Marina B.",
+    metrica: "9.120 de alcance · 104 salvos",
+  },
+  {
+    titulo: "Look completo com mocassim",
+    origem: "Arte de IA · prova social",
+    metrica: "6.480 de alcance · 71 salvos",
+  },
+  {
+    titulo: "Chegou tamanho 41",
+    origem: "Arte de IA · produto",
+    metrica: "5.930 de alcance · 44 salvos",
+  },
+];
+
+export const metricasFormatos = [
+  { nome: "Prova social", valor: 96 },
+  { nome: "Vídeo de creator", valor: 83 },
+  { nome: "Bastidor da loja", valor: 52 },
+  { nome: "Oferta e preço", valor: 37 },
+];
