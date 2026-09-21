@@ -22,7 +22,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Action Media",
+  title: "WLK Creative",
   description: "Gestão de mídia para varejo — planejamento, social media e UGC.",
 };
 

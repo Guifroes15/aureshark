@@ -6,22 +6,22 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#594797",
-          hover: "#43356F",
+          DEFAULT: "#146B9C",
+          hover: "#0F5478",
         },
-        accent: "#914594",
+        accent: "#2AA8DE",
         sidebar: {
-          bg: "#1A1030",
-          active: "#2E2560",
-          text: "#C6BADF",
+          bg: "#FFFFFF",
+          active: "#E7F2FC",
+          text: "#5B6B7C",
         },
-        app: "#F7F6FB",
+        app: "#F5F9FC",
         surface: "#FFFFFF",
-        line: "#E3DEEF",
+        line: "#E2E8F0",
         ink: {
-          DEFAULT: "#17122A",
-          secondary: "#574C74",
-          tertiary: "#6E6488",
+          DEFAULT: "#101826",
+          secondary: "#48566A",
+          tertiary: "#6B7A8C",
         },
         success: { DEFAULT: "#0D6B45", bg: "#E3F3EB" },
         warning: { DEFAULT: "#8A5300", bg: "#FCF0DC" },

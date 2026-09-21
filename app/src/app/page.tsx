@@ -47,14 +47,14 @@ export default function InicioPage() {
               {fila.map((f) => (
                 <div
                   key={f.titulo}
-                  className="flex items-center gap-3.5 rounded-[11px] border border-[#EAE6F4] p-3"
+                  className="flex items-center gap-3.5 rounded-[11px] border border-[#E2E8F0] p-3"
                 >
                   <ProductThumb />
                   <span className="flex min-w-0 flex-grow flex-col gap-0.5">
                     <span className="text-[13.5px] font-semibold text-ink">{f.titulo}</span>
                     <span className="text-xs text-ink-tertiary">{f.meta}</span>
                   </span>
-                  <span className="rounded-[5px] bg-[#EFEAF8] px-2 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.08em] text-primary">
+                  <span className="rounded-[5px] bg-[#E7F2FC] px-2 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.08em] text-primary">
                     {f.tipo}
                   </span>
                   <Link
@@ -82,7 +82,7 @@ export default function InicioPage() {
               {datasComerciais.map((d) => (
                 <div
                   key={d.dia + d.data}
-                  className="flex gap-3 border-b border-[#EEEAF6] pb-3 last:border-b-0"
+                  className="flex gap-3 border-b border-[#E9EEF4] pb-3 last:border-b-0"
                 >
                   <span className="flex w-11 flex-shrink-0 flex-col items-center pt-0.5">
                     <span className="font-display text-[19px] font-extrabold tracking-[-0.03em] text-primary">
@@ -100,8 +100,8 @@ export default function InicioPage() {
               ))}
             </div>
 
-            <div className="mt-auto rounded-[11px] bg-[#EFEAF8] p-3.5">
-              <p className="m-0 mb-2 text-[12.5px] leading-[1.5] text-[#382D63]">
+            <div className="mt-auto rounded-[11px] bg-[#E7F2FC] p-3.5">
+              <p className="m-0 mb-2 text-[12.5px] leading-[1.5] text-[#0B3C63]">
                 O calendário do ano inteiro já está montado. Cada data vem com a copy e a
                 ação definidas antes de qualquer arte existir.
               </p>
