@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Archivo, IBM_Plex_Mono, IBM_Plex_Sans, Instrument_Serif } from "next/font/google";
-import Sidebar from "@/components/sidebar";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -43,12 +42,7 @@ export default function RootLayout({
       <body
         className={`${archivo.variable} ${plexSans.variable} ${plexMono.variable} ${instrumentSerif.variable} font-sans antialiased`}
       >
-        <div className="flex h-screen min-h-screen overflow-hidden bg-app">
-          <Sidebar />
-          <div className="flex min-w-0 flex-1 flex-col overflow-y-auto">
-            {children}
-          </div>
-        </div>
+        {children}
       </body>
     </html>
   );
