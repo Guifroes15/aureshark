@@ -11,7 +11,6 @@ import {
   BarsIcon,
   ExternalArrowIcon,
   GridFeedIcon,
-  GridStackIcon,
   HomeIcon,
   SparkleIcon,
   UsersIcon,
@@ -42,7 +41,6 @@ const groups: NavGroup[] = [
     label: "SOCIAL MEDIA",
     items: [
       { label: "Gerar publicações", href: "/gerar", icon: SparkleIcon },
-      { label: "Modelos", href: "/modelos", icon: GridStackIcon },
       { label: "Aprovadas e agenda", href: "/aprovados", icon: CheckSquareIcon },
       { label: "Prévia do feed", href: "/feed", icon: GridFeedIcon },
       { label: "Métricas", href: "/metricas", icon: BarsIcon },
@@ -51,7 +49,7 @@ const groups: NavGroup[] = [
   {
     label: "UGC",
     items: [
-      { label: "Descobrir creators", href: "/creators", icon: UsersIcon },
+      { label: "Meus creators", href: "/creators", icon: UsersIcon },
       { label: "Minhas campanhas", href: "/campanha", icon: BriefcaseIcon },
     ],
   },

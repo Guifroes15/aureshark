@@ -58,17 +58,3 @@ export function proximasDatasComerciais(
   comOcorrencia.sort((a, b) => a.ocorreEm.getTime() - b.ocorreEm.getTime());
   return comOcorrencia.slice(0, quantidade);
 }
-
-export type Creator = {
-  id: number;
-  iniciais: string;
-  nome: string;
-  cidade: string;
-  nichos: string[];
-  nota: number;
-  entregas: number;
-  prazoDias: number;
-  valor: number;
-};
-
-export const creators: Creator[] = [];
