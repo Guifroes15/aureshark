@@ -3,7 +3,6 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import PageHeader from "@/components/page-header";
-import PortfolioPreview from "@/components/creators/portfolio-preview";
 import { creators } from "@/lib/data";
 
 const NICHOS: { label: string; keywords: string[] }[] = [
@@ -67,7 +66,7 @@ export default function CreatorsPage() {
 
   return (
     <>
-      <PageHeader eyebrow="MARKETPLACE · 312 CREATORS APROVADOS" title="Descobrir creators">
+      <PageHeader eyebrow="MARKETPLACE DE UGC" title="Descobrir creators">
         <div className="flex min-h-[44px] w-[300px] items-center gap-2 rounded-[9px] border border-[#D5CFE7] bg-surface px-3.5">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#6B7A8C" strokeWidth={1.7} strokeLinecap="round" aria-hidden="true">
             <circle cx="7.2" cy="7.2" r="4.4" />
@@ -225,8 +224,6 @@ export default function CreatorsPage() {
                   </span>
                 </div>
 
-                <PortfolioPreview />
-
                 <div className="flex flex-wrap gap-1.5">
                   {c.nichos.map((n) => (
                     <span key={n} className="rounded-full bg-tint px-2 py-[3px] text-[11px] text-tint-fg">
@@ -266,7 +263,12 @@ export default function CreatorsPage() {
               </div>
             ))}
 
-            {filtrados.length === 0 && (
+            {filtrados.length === 0 && creators.length === 0 && (
+              <p className="col-span-3 py-8 text-center text-sm text-ink-tertiary">
+                Nenhum creator cadastrado ainda no marketplace.
+              </p>
+            )}
+            {filtrados.length === 0 && creators.length > 0 && (
               <p className="col-span-3 py-8 text-center text-sm text-ink-tertiary">
                 Nenhum creator combina com esses filtros. Tente ampliar a busca.
               </p>

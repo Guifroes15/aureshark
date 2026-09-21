@@ -25,7 +25,6 @@ const NAV: NavItem[] = [
   {
     label: "Convites",
     href: "#",
-    badge: "3",
     icon: (
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M2.4 4.2h11.2v7.6H2.4Z" />
@@ -109,7 +108,7 @@ export default function CreatorSidebar() {
                   : "font-normal text-sidebar-text hover:bg-[#F2F7FC] hover:text-primary"
               }`}
             >
-              {item.icon}
+              <span className={active ? "text-primary" : "text-accent"}>{item.icon}</span>
               <span className="flex-grow">{item.label}</span>
               {item.badge && (
                 <span className="rounded-full bg-accent px-1.5 py-0.5 font-mono text-[10px] font-semibold text-white">
@@ -130,12 +129,15 @@ export default function CreatorSidebar() {
           Ver o lado da loja
         </Link>
         <div className="flex items-center gap-2.5 border-t border-line p-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary font-display text-[12.5px] font-bold text-white">
-            MB
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-tint text-accent">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" aria-hidden="true">
+              <circle cx="8" cy="5.8" r="2.8" />
+              <path d="M3 13.4c0-2.4 2.2-4 5-4s5 1.6 5 4" />
+            </svg>
           </span>
           <span className="flex flex-grow flex-col">
-            <span className="text-[12.5px] font-semibold text-ink">Marina B.</span>
-            <span className="text-[11px] text-ink-tertiary">Creator aprovada</span>
+            <span className="text-[12.5px] font-semibold text-ink">Meu perfil</span>
+            <span className="text-[11px] text-ink-tertiary">Cadastro incompleto</span>
           </span>
         </div>
       </div>

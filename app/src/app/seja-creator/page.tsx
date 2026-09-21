@@ -5,12 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 const HERO_THUMBS = [
-  { bg: "#E7D7C6", fill: "#241C17", offset: false },
-  { bg: "#F7F1EA", fill: "#C4553A", offset: true },
-  { bg: "#C4553A", fill: "#FBF6F0", offset: false },
-  { bg: "#241C17", fill: "#D9C3AE", offset: false },
-  { bg: "#EFE3D6", fill: "#8A5A46", offset: true },
-  { bg: "#F1E4D8", fill: "#241C17", offset: false },
+  { bg: "#146B9C", icon: "#FFFFFF", offset: false },
+  { bg: "#E7F2FC", icon: "#146B9C", offset: true },
+  { bg: "#2AA8DE", icon: "#FFFFFF", offset: false },
+  { bg: "#0F5478", icon: "#FFFFFF", offset: false },
+  { bg: "#DFEBF6", icon: "#146B9C", offset: true },
+  { bg: "#101826", icon: "#2AA8DE", offset: false },
 ];
 
 const PASSOS = [
@@ -38,19 +38,15 @@ const PASSOS = [
 
 const NICHOS = ["Moda e calçados", "Lifestyle", "Infantil", "Casa", "Fitness"];
 
-function ShoeGlyph({ bg, fill }: { bg: string; fill: string }) {
+function VideoGlyph({ bg, icon }: { bg: string; icon: string }) {
   return (
     <span
       className="flex h-full items-center justify-center rounded-[11px] border border-line"
       style={{ background: bg }}
     >
-      <svg viewBox="0 0 120 64" className="h-auto w-[66%]" aria-hidden="true">
-        <path
-          d="M14 40C16 26 22 18 34 15c10-3 18-1 24 4l14 12c8 6 20 10 32 12 6 1 8 4 8 7v2c0 2-2 3-4 3H18c-4 0-8-3-8-8Z"
-          fill={fill}
-        />
-        <path d="M11 48h101" stroke={bg} strokeWidth={3} />
-        <path d="M34 21l10 6M40 18l10 6M46 16l10 6" stroke={bg} strokeWidth={2} />
+      <svg width="34" height="34" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <circle cx="8" cy="8" r="6.4" stroke={icon} strokeWidth={1.4} />
+        <path d="M6.6 5.6 10.8 8l-4.2 2.4Z" fill={icon} />
       </svg>
     </span>
   );
@@ -66,8 +62,8 @@ export default function SejaCreatorPage() {
   const [prazo, setPrazo] = useState("Até 3 dias depois de receber");
   const [aceite1, setAceite1] = useState(false);
   const [aceite2, setAceite2] = useState(false);
-  const [videosEnviados, setVideosEnviados] = useState(3);
-  const [marcas, setMarcas] = useState(["Loja de calçados em BH", "Marca de tênis", ""]);
+  const [videosEnviados, setVideosEnviados] = useState(0);
+  const [marcas, setMarcas] = useState(["", "", ""]);
   const [enviado, setEnviado] = useState(false);
   const [erro, setErro] = useState("");
 
@@ -169,7 +165,7 @@ export default function SejaCreatorPage() {
         <div className="grid w-[430px] flex-shrink-0 grid-cols-3 gap-2.5">
           {HERO_THUMBS.map((t, i) => (
             <span key={i} className={`h-[190px] ${t.offset ? "mt-6" : ""}`}>
-              <ShoeGlyph bg={t.bg} fill={t.fill} />
+              <VideoGlyph bg={t.bg} icon={t.icon} />
             </span>
           ))}
         </div>
@@ -400,14 +396,9 @@ export default function SejaCreatorPage() {
                 <div className="grid grid-cols-5 gap-1.5">
                   {Array.from({ length: 5 }, (_, i) => i).map((i) => {
                     const preenchido = i < videosEnviados;
-                    const cores = [
-                      { bg: "#E7D7C6", fill: "#241C17" },
-                      { bg: "#F7F1EA", fill: "#C4553A" },
-                      { bg: "#C4553A", fill: "#FBF6F0" },
-                    ][i % 3];
                     return preenchido ? (
                       <span key={i} className="h-[74px]">
-                        <ShoeGlyph bg={cores.bg} fill={cores.fill} />
+                        <VideoGlyph bg="#146B9C" icon="#FFFFFF" />
                       </span>
                     ) : (
                       <button

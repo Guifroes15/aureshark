@@ -3,40 +3,20 @@
 import { useState } from "react";
 import Link from "next/link";
 import PageHeader from "@/components/page-header";
-import ProductThumb from "@/components/product-thumb";
-import {
-  agendadasInicial,
-  aguardandoInicial,
-  publicadas,
-  type Agendada,
-  type Aguardando,
-} from "@/lib/data";
+import { usePosts } from "@/lib/posts-store";
 
 export default function AprovadosPage() {
   const [view, setView] = useState<"quadro" | "calendario">("quadro");
-  const [aguardando, setAguardando] = useState<Aguardando[]>(aguardandoInicial);
-  const [agendadas, setAgendadas] = useState<Agendada[]>(agendadasInicial);
+  const { posts, aprovarPost, aprovarTodos, hidratado } = usePosts();
+  const [quandoPorId, setQuandoPorId] = useState<Record<string, string>>({});
 
-  function aprovar(item: Aguardando) {
-    setAguardando((prev) => prev.filter((a) => a.id !== item.id));
-    setAgendadas((prev) => [
-      { id: item.id, titulo: item.titulo, quando: item.quando, rede: "IG" },
-      ...prev,
-    ]);
-  }
-
-  function aprovarSemana() {
-    if (aguardando.length === 0) return;
-    setAgendadas((prev) => [
-      ...aguardando.map((a) => ({ id: a.id, titulo: a.titulo, quando: a.quando, rede: "IG" })),
-      ...prev,
-    ]);
-    setAguardando([]);
-  }
+  const aguardando = posts.filter((p) => p.status === "aguardando");
+  const agendadas = posts.filter((p) => p.status === "agendada").sort((a, b) => b.criadoEm - a.criadoEm);
+  const publicadas = posts.filter((p) => p.status === "publicada");
 
   return (
     <>
-      <PageHeader eyebrow="21 A 27 DE SETEMBRO · INSTAGRAM E FACEBOOK" title="Aprovadas e agenda">
+      <PageHeader eyebrow="SOCIAL MEDIA · APROVAÇÃO E AGENDA" title="Aprovadas e agenda">
         <div className="flex items-center overflow-hidden rounded-[9px] border border-[#D5CFE7]">
           <button
             onClick={() => setView("quadro")}
@@ -56,24 +36,14 @@ export default function AprovadosPage() {
           </button>
         </div>
         <button
-          onClick={aprovarSemana}
+          onClick={aprovarTodos}
           disabled={aguardando.length === 0}
           className="flex min-h-[44px] items-center gap-2 rounded-[9px] bg-primary px-4 text-[13.5px] font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50"
         >
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 16 16"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M3.6 8.4 6.4 11.2l6-6.4" />
           </svg>
-          Aprovar a semana inteira
+          Aprovar todas
         </button>
       </PageHeader>
 
@@ -81,6 +51,8 @@ export default function AprovadosPage() {
         <div className="flex flex-grow items-center justify-center px-7 py-6">
           <p className="text-sm text-ink-tertiary">A visão de calendário chega numa próxima etapa.</p>
         </div>
+      ) : !hidratado ? (
+        <div className="flex flex-grow items-center justify-center px-7 py-6" />
       ) : (
         <div className="flex min-h-0 flex-grow flex-col gap-4 px-7 py-[22px]">
           <div className="flex flex-grow gap-4">
@@ -98,17 +70,28 @@ export default function AprovadosPage() {
               {aguardando.map((a) => (
                 <div key={a.id} className="flex flex-col gap-2.5 rounded-[11px] border border-line p-3">
                   <div className="flex gap-2.5">
-                    <ProductThumb size={58} />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={a.imagemUrl}
+                      alt={a.titulo}
+                      className="h-[58px] w-[58px] flex-shrink-0 rounded-lg border border-line object-cover"
+                    />
                     <span className="flex min-w-0 flex-col gap-[3px]">
                       <span className="text-[13px] font-semibold leading-[1.35] text-ink">
                         {a.titulo}
                       </span>
-                      <span className="text-[11.5px] text-ink-tertiary">{a.quando}</span>
+                      <span className="text-[11.5px] text-ink-tertiary">{a.tipo}</span>
                     </span>
                   </div>
+                  <input
+                    value={quandoPorId[a.id] ?? ""}
+                    onChange={(e) => setQuandoPorId((prev) => ({ ...prev, [a.id]: e.target.value }))}
+                    placeholder="Quando publicar? Ex: Hoje, 19h"
+                    className="rounded-lg border border-line bg-surface px-2.5 py-2 text-xs text-ink"
+                  />
                   <div className="flex gap-2">
                     <button
-                      onClick={() => aprovar(a)}
+                      onClick={() => aprovarPost(a.id, quandoPorId[a.id] || "Data a definir")}
                       className="min-h-10 flex-grow rounded-lg bg-ink text-[12.5px] font-semibold text-white"
                     >
                       Aprovar
@@ -124,7 +107,9 @@ export default function AprovadosPage() {
               ))}
 
               {aguardando.length === 0 && (
-                <p className="px-1 text-xs text-ink-tertiary">Tudo revisado por aqui.</p>
+                <p className="px-1 text-xs text-ink-tertiary">
+                  Nada esperando aprovação. Envie artes em &quot;Gerar publicações&quot;.
+                </p>
               )}
             </section>
 
@@ -141,22 +126,18 @@ export default function AprovadosPage() {
 
               {agendadas.map((g) => (
                 <div key={g.id} className="flex gap-2.5 rounded-[11px] border border-line p-2.5">
-                  <ProductThumb size={52} bg="#F7F1EA" fill="#C4553A" />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={g.imagemUrl}
+                    alt={g.titulo}
+                    className="h-[52px] w-[52px] flex-shrink-0 rounded-lg border border-line object-cover"
+                  />
                   <span className="flex min-w-0 flex-grow flex-col gap-[3px]">
                     <span className="text-[13px] font-semibold leading-[1.35] text-ink">
                       {g.titulo}
                     </span>
                     <span className="flex items-center gap-1.5 text-[11.5px] text-ink-tertiary">
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={1.8}
-                        strokeLinecap="round"
-                        aria-hidden="true"
-                      >
+                      <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" aria-hidden="true">
                         <circle cx="8" cy="8" r="5.8" />
                         <path d="M8 5.2V8l2 1.6" />
                       </svg>
@@ -168,6 +149,10 @@ export default function AprovadosPage() {
                   </span>
                 </div>
               ))}
+
+              {agendadas.length === 0 && (
+                <p className="px-1 text-xs text-ink-tertiary">Nada aprovado ainda.</p>
+              )}
             </section>
 
             <section className="flex min-w-0 flex-grow flex-col gap-2.5 rounded-2xl border border-line bg-surface p-4">
@@ -179,25 +164,18 @@ export default function AprovadosPage() {
                 </span>
               </div>
 
-              {publicadas.map((p) => (
-                <div key={p.id} className="flex gap-2.5 rounded-[11px] border border-line p-2.5">
-                  <ProductThumb size={52} bg="#C4553A" fill="#FBF6F0" />
-                  <span className="flex min-w-0 flex-col gap-[3px]">
-                    <span className="text-[13px] font-semibold leading-[1.35] text-ink">
-                      {p.titulo}
-                    </span>
-                    <span className="text-[11.5px] text-ink-tertiary">{p.metrica}</span>
-                  </span>
-                </div>
-              ))}
+              <p className="px-1 text-xs text-ink-tertiary">
+                Nada publicado ainda. Isso chega quando a publicação automática no Instagram e
+                Facebook estiver ligada.
+              </p>
 
               <div className="mt-auto rounded-[11px] bg-tint p-3.5">
                 <p className="m-0 mb-1.5 font-display text-[13px] font-bold text-ink">
-                  O que performou volta para o planejamento
+                  O que performar volta para o planejamento
                 </p>
                 <p className="m-0 text-xs leading-[1.5] text-tint-fg">
-                  Prova social salvou 3x mais que vitrine. A próxima semana já vem com mais desse
-                  formato.
+                  Assim que houver publicações no ar, o desempenho de cada formato ajuda a ajustar
+                  o próximo calendário.
                 </p>
               </div>
             </section>
@@ -211,14 +189,6 @@ export default function AprovadosPage() {
               <span className="text-[12.5px] text-[#AFC3D6]">
                 Uma passada por dia libera a semana inteira em poucos segundos. Publicar sem
                 aprovar é dano de marca, não bug.
-              </span>
-            </span>
-            <span className="flex flex-col items-end">
-              <span className="font-display text-[22px] font-extrabold tracking-[-0.03em] text-accent">
-                38 s
-              </span>
-              <span className="font-mono text-[9.5px] font-semibold tracking-[0.1em] text-[#7C93A8]">
-                TEMPO MÉDIO DE APROVAÇÃO
               </span>
             </span>
           </div>

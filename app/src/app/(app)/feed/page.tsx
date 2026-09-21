@@ -3,34 +3,28 @@
 import { useState } from "react";
 import Link from "next/link";
 import PageHeader from "@/components/page-header";
-import ProductThumb from "@/components/product-thumb";
-import { FeedGridCellVisual } from "@/components/feed/grid-cells";
-import { feedFilaInicial, feedGrid, feedMix, type FeedFilaItem } from "@/lib/data";
-
-const mixColor: Record<string, string> = {
-  alto: "#8A5300",
-  medio: "#146B9C",
-  baixo: "#8FC2E3",
-};
+import { usePosts } from "@/lib/posts-store";
 
 export default function FeedPage() {
-  const [filtro, setFiltro] = useState<"todas" | "publicadas">("todas");
-  const [fila, setFila] = useState<FeedFilaItem[]>(feedFilaInicial);
-  const [dragId, setDragId] = useState<number | null>(null);
+  const { posts, hidratado, reordenarAgendadas } = usePosts();
+  const [dragId, setDragId] = useState<string | null>(null);
   const [salvo, setSalvo] = useState(false);
 
-  const grade = feedGrid.filter((g) => filtro === "todas" || g.status === "publicada");
+  const agendadas = posts
+    .filter((p) => p.status === "agendada")
+    .sort((a, b) => b.criadoEm - a.criadoEm);
 
-  function onDrop(targetId: number) {
+  const grade = agendadas.slice(0, 9);
+  const vazios = Math.max(0, 9 - grade.length);
+
+  const porTipo = agendadas.reduce<Record<string, number>>((acc, p) => {
+    acc[p.tipo] = (acc[p.tipo] || 0) + 1;
+    return acc;
+  }, {});
+
+  function onDrop(targetId: string) {
     if (dragId === null || dragId === targetId) return;
-    setFila((prev) => {
-      const from = prev.findIndex((f) => f.id === dragId);
-      const to = prev.findIndex((f) => f.id === targetId);
-      const next = [...prev];
-      const [moved] = next.splice(from, 1);
-      next.splice(to, 0, moved);
-      return next;
-    });
+    reordenarAgendadas(dragId, targetId);
     setDragId(null);
     setSalvo(false);
   }
@@ -42,40 +36,13 @@ export default function FeedPage() {
 
   return (
     <>
-      <PageHeader eyebrow="@AURORACALCADOS · COMO O PERFIL VAI FICAR" title="Prévia do feed">
-        <div className="flex items-center overflow-hidden rounded-[9px] border border-[#D5CFE7]">
-          <button
-            onClick={() => setFiltro("todas")}
-            className={`min-h-10 px-3.5 text-[12.5px] font-semibold ${
-              filtro === "todas" ? "bg-ink text-white" : "bg-surface text-ink-secondary"
-            }`}
-          >
-            Com agendadas
-          </button>
-          <button
-            onClick={() => setFiltro("publicadas")}
-            className={`min-h-10 border-l border-[#D5CFE7] px-3.5 text-[12.5px] font-medium ${
-              filtro === "publicadas" ? "bg-ink text-white" : "bg-surface text-ink-secondary"
-            }`}
-          >
-            Só publicadas
-          </button>
-        </div>
+      <PageHeader eyebrow="INSTAGRAM AINDA NÃO CONECTADO" title="Prévia do feed">
         <button
           onClick={salvarOrdem}
-          className="flex min-h-[44px] items-center gap-2 rounded-[9px] bg-primary px-4 text-[13.5px] font-semibold text-white hover:bg-primary-hover"
+          disabled={agendadas.length === 0}
+          className="flex min-h-[44px] items-center gap-2 rounded-[9px] bg-primary px-4 text-[13.5px] font-semibold text-white hover:bg-primary-hover disabled:cursor-not-allowed disabled:opacity-50"
         >
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 16 16"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={1.8}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M5.4 2.8 2.8 5.4l2.6 2.6M2.8 5.4h7.4a3 3 0 0 1 3 3v4.8" />
           </svg>
           {salvo ? "Ordem salva" : "Salvar nova ordem"}
@@ -89,7 +56,7 @@ export default function FeedPage() {
               <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="#101826" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M9.6 3.4 5 8l4.6 4.6" />
               </svg>
-              <span className="flex-grow text-[14.5px] font-semibold">auroracalcados</span>
+              <span className="flex-grow text-[14.5px] font-semibold text-ink-tertiary">sua_loja</span>
               <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="#101826" strokeWidth={1.6} strokeLinecap="round" aria-hidden="true">
                 <path d="M12 6.4a4 4 0 0 0-8 0c0 3.4-1.4 4.4-1.4 4.4h10.8S12 9.8 12 6.4ZM6.8 12.8a1.4 1.4 0 0 0 2.4 0" />
               </svg>
@@ -101,31 +68,32 @@ export default function FeedPage() {
             </div>
 
             <div className="flex flex-shrink-0 items-center gap-[18px] px-4 pb-3 pt-1.5">
-              <span className="flex h-[74px] w-[74px] flex-shrink-0 items-center justify-center rounded-full bg-[#DFEBF6] font-display text-[22px] font-extrabold text-primary">
-                AC
+              <span className="flex h-[74px] w-[74px] flex-shrink-0 items-center justify-center rounded-full bg-[#DFEBF6] text-accent">
+                <svg width="30" height="30" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M2.4 6.6 8 2.8l5.6 3.8v6.4a.6.6 0 0 1-.6.6H3a.6.6 0 0 1-.6-.6Z" />
+                  <path d="M6 13.6V9.4h4v4.2" />
+                </svg>
               </span>
               <span className="flex flex-grow justify-around">
                 <span className="flex flex-col items-center">
-                  <span className="font-display text-base font-bold">248</span>
+                  <span className="font-display text-base font-bold text-ink-tertiary">—</span>
                   <span className="text-xs text-ink-secondary">publicações</span>
                 </span>
                 <span className="flex flex-col items-center">
-                  <span className="font-display text-base font-bold">9.482</span>
+                  <span className="font-display text-base font-bold text-ink-tertiary">—</span>
                   <span className="text-xs text-ink-secondary">seguidores</span>
                 </span>
                 <span className="flex flex-col items-center">
-                  <span className="font-display text-base font-bold">312</span>
+                  <span className="font-display text-base font-bold text-ink-tertiary">—</span>
                   <span className="text-xs text-ink-secondary">seguindo</span>
                 </span>
               </span>
             </div>
 
             <div className="flex flex-shrink-0 flex-col gap-0.5 px-4 pb-3">
-              <span className="text-[13.5px] font-semibold">Aurora Calçados</span>
-              <span className="text-[13px] leading-[1.45] text-ink-secondary">
-                Loja no Iguatemi · numeração 34 ao 40
-                <br />
-                Entrega em BH no mesmo dia
+              <span className="text-[13.5px] font-semibold text-ink-tertiary">Sua loja</span>
+              <span className="text-[13px] leading-[1.45] text-ink-tertiary">
+                Conecte o Instagram para trazer sua bio de verdade aqui.
               </span>
             </div>
 
@@ -166,15 +134,27 @@ export default function FeedPage() {
             </div>
 
             <div className="grid flex-grow grid-cols-3 content-start gap-0.5 bg-surface p-0.5">
-              {grade.map((g) => (
-                <span key={g.id} className="relative block h-[152px] overflow-hidden">
-                  <FeedGridCellVisual cell={g.cell} />
+              {hidratado &&
+                grade.map((g) => (
+                  <span key={g.id} className="relative block h-[152px] overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={g.imagemUrl} alt={g.titulo} className="h-full w-full object-cover" />
+                    <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-primary" />
+                  </span>
+                ))}
+              {hidratado &&
+                Array.from({ length: vazios }, (_, i) => (
                   <span
-                    className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full"
-                    style={{ background: g.status === "agendada" ? "#146B9C" : "#0D6B45" }}
-                  />
-                </span>
-              ))}
+                    key={`vazio-${i}`}
+                    className="flex h-[152px] items-center justify-center border border-dashed border-[#D5E1EA] bg-[#FAFBFD]"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#C2D2DD" strokeWidth={1.3} strokeLinecap="round" aria-hidden="true">
+                      <rect x="2.4" y="2.4" width="11.2" height="11.2" rx="1.6" />
+                      <circle cx="6" cy="6.4" r="1.2" />
+                      <path d="M2.6 11.4l3.4-3.4 2.4 2.2 3-3.4 1.9 1.9" />
+                    </svg>
+                  </span>
+                ))}
             </div>
           </div>
           <span className="text-xs text-ink-tertiary">
@@ -189,18 +169,8 @@ export default function FeedPage() {
                 O lojista vê o feed antes de ir ao ar
               </span>
               <span className="text-[12.5px] text-ink-secondary">
-                Aprovar um post é fácil. O que ninguém mostra é como os nove posts ficam juntos na
+                Aprovar um post é fácil. O que ninguém mostra é como os posts ficam juntos na
                 grade.
-              </span>
-            </span>
-            <span className="flex flex-shrink-0 gap-3.5">
-              <span className="flex items-center gap-1.5 text-xs text-ink-secondary">
-                <span className="h-[9px] w-[9px] rounded-full bg-primary" />
-                agendada
-              </span>
-              <span className="flex items-center gap-1.5 text-xs text-ink-secondary">
-                <span className="h-[9px] w-[9px] rounded-full bg-success" />
-                publicada
               </span>
             </span>
           </div>
@@ -215,7 +185,14 @@ export default function FeedPage() {
               </Link>
             </div>
 
-            {fila.map((f) => (
+            {hidratado && agendadas.length === 0 && (
+              <p className="px-1 text-xs text-ink-tertiary">
+                Nada agendado ainda. Aprove publicações em &quot;Aprovadas e agenda&quot; para
+                verem aqui.
+              </p>
+            )}
+
+            {agendadas.map((f) => (
               <div
                 key={f.id}
                 draggable
@@ -234,13 +211,14 @@ export default function FeedPage() {
                   <circle cx="6" cy="12.4" r="1.2" />
                   <circle cx="10" cy="12.4" r="1.2" />
                 </svg>
-                <ProductThumb size={44} />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={f.imagemUrl} alt={f.titulo} className="h-11 w-11 flex-shrink-0 rounded-lg border border-line object-cover" />
                 <span className="flex min-w-0 flex-grow flex-col gap-0.5">
                   <span className="text-[13.5px] font-semibold text-ink">{f.titulo}</span>
                   <span className="text-xs text-ink-tertiary">{f.quando}</span>
                 </span>
-                <span className="rounded-md bg-[#F1F5F9] px-2 py-1 font-mono text-[9.5px] font-semibold tracking-[0.08em] text-ink-secondary">
-                  {f.formato}
+                <span className="rounded-md bg-[#F1F5F9] px-2 py-1 font-mono text-[9.5px] font-semibold uppercase tracking-[0.08em] text-ink-secondary">
+                  {f.tipo}
                 </span>
                 <span className="h-[9px] w-[9px] flex-shrink-0 rounded-full bg-primary" />
               </div>
@@ -250,34 +228,31 @@ export default function FeedPage() {
           <div className="flex flex-col gap-3 rounded-2xl border border-line bg-surface px-5 py-[18px]">
             <div className="flex items-baseline gap-2.5">
               <h2 className="m-0 flex-grow font-display text-base font-bold text-ink">
-                Equilíbrio do feed nos próximos 9 posts
+                Equilíbrio do feed por formato
               </h2>
-              <span className="text-xs text-ink-tertiary">
-                O planejamento sugere no máximo 40% de oferta
-              </span>
             </div>
-            {feedMix.map((m) => (
-              <span key={m.nome} className="flex items-center gap-3">
-                <span className="w-[118px] flex-shrink-0 text-[12.5px] text-ink-secondary">
-                  {m.nome}
-                </span>
-                <span className="h-[9px] flex-grow overflow-hidden rounded-full bg-[#E9EEF4]">
-                  <span
-                    className="block h-full rounded-full"
-                    style={{ width: m.largura, background: mixColor[m.nivel] }}
-                  />
-                </span>
-                <span className="w-11 flex-shrink-0 text-right font-mono text-xs font-semibold">
-                  {m.valor}
-                </span>
-              </span>
-            ))}
-            <div className="rounded-[10px] border border-[#EBD3A6] bg-warning-bg px-3.5 py-3">
-              <p className="m-0 text-[12.5px] leading-[1.55] text-[#4A3714]">
-                Quase metade da semana está em oferta. Trocar dois posts por prova social equilibra
-                a grade — o planejamento já sugeriu dois roteiros.
+            {agendadas.length === 0 ? (
+              <p className="px-1 text-xs text-ink-tertiary">
+                Aparece assim que houver publicações agendadas suficientes para comparar.
               </p>
-            </div>
+            ) : (
+              Object.entries(porTipo).map(([tipo, qtd]) => (
+                <span key={tipo} className="flex items-center gap-3">
+                  <span className="w-[118px] flex-shrink-0 text-[12.5px] text-ink-secondary">
+                    {tipo}
+                  </span>
+                  <span className="h-[9px] flex-grow overflow-hidden rounded-full bg-[#E9EEF4]">
+                    <span
+                      className="block h-full rounded-full bg-primary"
+                      style={{ width: `${(qtd / agendadas.length) * 100}%` }}
+                    />
+                  </span>
+                  <span className="w-11 flex-shrink-0 text-right font-mono text-xs font-semibold">
+                    {qtd}
+                  </span>
+                </span>
+              ))
+            )}
           </div>
         </section>
       </div>

@@ -32,7 +32,7 @@ const groups: NavGroup[] = [
     label: "GERAL",
     items: [
       { label: "Início", href: "/", icon: HomeIcon },
-      { label: "Planejamento", href: "#", icon: CalendarIcon },
+      { label: "Planejamento", href: "/planejamento", icon: CalendarIcon },
     ],
   },
   {
@@ -97,7 +97,9 @@ export default function Sidebar() {
                       : "font-normal text-sidebar-text hover:bg-[#F2F7FC] hover:text-primary"
                   }`}
                 >
-                  <Icon className="shrink-0" />
+                  <span className={active ? "text-primary" : "text-accent"}>
+                    <Icon className="shrink-0" />
+                  </span>
                   {item.label}
                 </Link>
               );
@@ -115,12 +117,15 @@ export default function Sidebar() {
           Portal do creator
         </Link>
         <div className="flex items-center gap-2.5 border-t border-line p-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary font-display text-[12.5px] font-bold text-white">
-            AC
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-tint text-accent">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M2.4 6.6 8 2.8l5.6 3.8v6.4a.6.6 0 0 1-.6.6H3a.6.6 0 0 1-.6-.6Z" />
+              <path d="M6 13.6V9.4h4v4.2" />
+            </svg>
           </span>
           <span className="flex flex-grow flex-col">
-            <span className="text-[12.5px] font-semibold text-ink">Aurora Calçados</span>
-            <span className="text-[11px] text-ink-tertiary">Plano Completo</span>
+            <span className="text-[12.5px] font-semibold text-ink">Minha loja</span>
+            <span className="text-[11px] text-ink-tertiary">Conectar Instagram</span>
           </span>
         </div>
       </div>
