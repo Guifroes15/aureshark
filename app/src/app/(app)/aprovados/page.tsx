@@ -3,16 +3,30 @@
 import { useState } from "react";
 import Link from "next/link";
 import PageHeader from "@/components/page-header";
-import { usePosts } from "@/lib/posts-store";
+import { usePosts, formatarQuando } from "@/lib/posts-store";
 
 export default function AprovadosPage() {
   const [view, setView] = useState<"quadro" | "calendario">("quadro");
-  const { posts, aprovarPost, aprovarTodos, hidratado } = usePosts();
-  const [quandoPorId, setQuandoPorId] = useState<Record<string, string>>({});
+  const { posts, aprovarPost, aprovarTodos, removerPost, hidratado } = usePosts();
+  const [dataPorId, setDataPorId] = useState<Record<string, string>>({});
+  const [editandoDataId, setEditandoDataId] = useState<string | null>(null);
 
   const aguardando = posts.filter((p) => p.status === "aguardando");
   const agendadas = posts.filter((p) => p.status === "agendada").sort((a, b) => b.criadoEm - a.criadoEm);
   const publicadas = posts.filter((p) => p.status === "publicada");
+
+  function aprovarComData(id: string) {
+    const data = dataPorId[id];
+    if (!data) return;
+    aprovarPost(id, data, "IG");
+  }
+
+  function salvarNovaData(id: string) {
+    const data = dataPorId[id];
+    if (!data) return;
+    aprovarPost(id, data, "IG");
+    setEditandoDataId(null);
+  }
 
   return (
     <>
@@ -69,30 +83,45 @@ export default function AprovadosPage() {
 
               {aguardando.map((a) => (
                 <div key={a.id} className="flex flex-col gap-2.5 rounded-[11px] border border-line p-3">
-                  <div className="flex gap-2.5">
+                  <div className="flex items-start gap-2.5">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={a.imagemUrl}
                       alt={a.titulo}
                       className="h-[58px] w-[58px] flex-shrink-0 rounded-lg border border-line object-cover"
                     />
-                    <span className="flex min-w-0 flex-col gap-[3px]">
+                    <span className="flex min-w-0 flex-grow flex-col gap-[3px]">
                       <span className="text-[13px] font-semibold leading-[1.35] text-ink">
                         {a.titulo}
                       </span>
                       <span className="text-[11.5px] text-ink-tertiary">{a.tipo}</span>
                     </span>
+                    <button
+                      onClick={() => removerPost(a.id)}
+                      aria-label="Remover"
+                      className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-ink-tertiary hover:bg-app hover:text-danger"
+                    >
+                      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" aria-hidden="true">
+                        <path d="M4 4l8 8M12 4l-8 8" />
+                      </svg>
+                    </button>
                   </div>
-                  <input
-                    value={quandoPorId[a.id] ?? ""}
-                    onChange={(e) => setQuandoPorId((prev) => ({ ...prev, [a.id]: e.target.value }))}
-                    placeholder="Quando publicar? Ex: Hoje, 19h"
-                    className="rounded-lg border border-line bg-surface px-2.5 py-2 text-xs text-ink"
-                  />
+                  <label className="flex flex-col gap-1">
+                    <span className="text-[10.5px] font-semibold text-ink-tertiary">
+                      Quando publicar
+                    </span>
+                    <input
+                      type="datetime-local"
+                      value={dataPorId[a.id] ?? ""}
+                      onChange={(e) => setDataPorId((prev) => ({ ...prev, [a.id]: e.target.value }))}
+                      className="rounded-lg border border-line bg-surface px-2.5 py-2 text-xs text-ink"
+                    />
+                  </label>
                   <div className="flex gap-2">
                     <button
-                      onClick={() => aprovarPost(a.id, quandoPorId[a.id] || "Data a definir")}
-                      className="min-h-10 flex-grow rounded-lg bg-ink text-[12.5px] font-semibold text-white"
+                      onClick={() => aprovarComData(a.id)}
+                      disabled={!dataPorId[a.id]}
+                      className="min-h-10 flex-grow rounded-lg bg-ink text-[12.5px] font-semibold text-white disabled:cursor-not-allowed disabled:opacity-40"
                     >
                       Aprovar
                     </button>
@@ -125,28 +154,72 @@ export default function AprovadosPage() {
               </div>
 
               {agendadas.map((g) => (
-                <div key={g.id} className="flex gap-2.5 rounded-[11px] border border-line p-2.5">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={g.imagemUrl}
-                    alt={g.titulo}
-                    className="h-[52px] w-[52px] flex-shrink-0 rounded-lg border border-line object-cover"
-                  />
-                  <span className="flex min-w-0 flex-grow flex-col gap-[3px]">
-                    <span className="text-[13px] font-semibold leading-[1.35] text-ink">
-                      {g.titulo}
+                <div key={g.id} className="flex flex-col gap-2 rounded-[11px] border border-line p-2.5">
+                  <div className="flex items-start gap-2.5">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={g.imagemUrl}
+                      alt={g.titulo}
+                      className="h-[52px] w-[52px] flex-shrink-0 rounded-lg border border-line object-cover"
+                    />
+                    <span className="flex min-w-0 flex-grow flex-col gap-[3px]">
+                      <span className="text-[13px] font-semibold leading-[1.35] text-ink">
+                        {g.titulo}
+                      </span>
+                      <span className="flex items-center gap-1.5 text-[11.5px] text-ink-tertiary">
+                        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" aria-hidden="true">
+                          <circle cx="8" cy="8" r="5.8" />
+                          <path d="M8 5.2V8l2 1.6" />
+                        </svg>
+                        {formatarQuando(g.quando)}
+                      </span>
                     </span>
-                    <span className="flex items-center gap-1.5 text-[11.5px] text-ink-tertiary">
-                      <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" aria-hidden="true">
-                        <circle cx="8" cy="8" r="5.8" />
-                        <path d="M8 5.2V8l2 1.6" />
+                    <span className="h-fit flex-shrink-0 rounded-md bg-tint px-[7px] py-[3px] font-mono text-[9.5px] font-semibold tracking-[0.08em] text-tint-fg">
+                      {g.rede}
+                    </span>
+                    <button
+                      onClick={() => removerPost(g.id)}
+                      aria-label="Remover"
+                      className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-ink-tertiary hover:bg-app hover:text-danger"
+                    >
+                      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" aria-hidden="true">
+                        <path d="M4 4l8 8M12 4l-8 8" />
                       </svg>
-                      {g.quando}
-                    </span>
-                  </span>
-                  <span className="h-fit rounded-md bg-tint px-[7px] py-[3px] font-mono text-[9.5px] font-semibold tracking-[0.08em] text-tint-fg">
-                    {g.rede}
-                  </span>
+                    </button>
+                  </div>
+
+                  {editandoDataId === g.id ? (
+                    <div className="flex items-center gap-2 pl-[62px]">
+                      <input
+                        type="datetime-local"
+                        value={dataPorId[g.id] ?? ""}
+                        onChange={(e) => setDataPorId((prev) => ({ ...prev, [g.id]: e.target.value }))}
+                        className="flex-grow rounded-lg border border-line bg-surface px-2.5 py-1.5 text-xs text-ink"
+                      />
+                      <button
+                        onClick={() => salvarNovaData(g.id)}
+                        className="rounded-md bg-primary px-2.5 py-1.5 text-[10.5px] font-semibold text-white"
+                      >
+                        Salvar
+                      </button>
+                      <button
+                        onClick={() => setEditandoDataId(null)}
+                        className="rounded-md border border-line px-2.5 py-1.5 text-[10.5px] font-semibold text-ink-secondary"
+                      >
+                        Cancelar
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => {
+                        setEditandoDataId(g.id);
+                        setDataPorId((prev) => ({ ...prev, [g.id]: prev[g.id] ?? g.quando }));
+                      }}
+                      className="ml-[62px] self-start text-[10.5px] font-semibold text-primary underline decoration-dotted"
+                    >
+                      Alterar data
+                    </button>
+                  )}
                 </div>
               ))}
 

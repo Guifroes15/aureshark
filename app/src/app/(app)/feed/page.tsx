@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import PageHeader from "@/components/page-header";
-import { usePosts } from "@/lib/posts-store";
+import { usePosts, formatarQuando } from "@/lib/posts-store";
 
 export default function FeedPage() {
   const { posts, hidratado, reordenarAgendadas } = usePosts();
@@ -215,7 +215,7 @@ export default function FeedPage() {
                 <img src={f.imagemUrl} alt={f.titulo} className="h-11 w-11 flex-shrink-0 rounded-lg border border-line object-cover" />
                 <span className="flex min-w-0 flex-grow flex-col gap-0.5">
                   <span className="text-[13.5px] font-semibold text-ink">{f.titulo}</span>
-                  <span className="text-xs text-ink-tertiary">{f.quando}</span>
+                  <span className="text-xs text-ink-tertiary">{formatarQuando(f.quando)}</span>
                 </span>
                 <span className="rounded-md bg-[#F1F5F9] px-2 py-1 font-mono text-[9.5px] font-semibold uppercase tracking-[0.08em] text-ink-secondary">
                   {f.tipo}

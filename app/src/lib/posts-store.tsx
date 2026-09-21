@@ -17,6 +17,20 @@ export type Post = {
   criadoEm: number;
 };
 
+const DIAS_SEMANA = ["dom", "seg", "ter", "qua", "qui", "sex", "sáb"];
+
+export function formatarQuando(valor: string): string {
+  if (!valor) return "Data a definir";
+  const data = new Date(valor);
+  if (Number.isNaN(data.getTime())) return valor;
+  const dia = DIAS_SEMANA[data.getDay()];
+  const d = String(data.getDate()).padStart(2, "0");
+  const m = String(data.getMonth() + 1).padStart(2, "0");
+  const h = String(data.getHours()).padStart(2, "0");
+  const min = String(data.getMinutes()).padStart(2, "0");
+  return `${dia}, ${d}/${m} às ${h}h${min}`;
+}
+
 type NovoPost = {
   titulo: string;
   imagemUrl: string;
