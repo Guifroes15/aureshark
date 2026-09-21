@@ -23,6 +23,7 @@ const config: Config = {
           secondary: "#48566A",
           tertiary: "#6B7A8C",
         },
+        tint: { DEFAULT: "#E7F2FC", fg: "#0B3C63" },
         success: { DEFAULT: "#0D6B45", bg: "#E3F3EB" },
         warning: { DEFAULT: "#8A5300", bg: "#FCF0DC" },
         danger: { DEFAULT: "#A3271E", bg: "#FCEAE7" },

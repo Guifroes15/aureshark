@@ -121,7 +121,7 @@ export default function GerarPage() {
               {gerarBrief.estiloTags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full bg-[#E7F2FC] px-2.5 py-[5px] text-xs text-[#0B3C63]"
+                  className="rounded-full bg-tint px-2.5 py-[5px] text-xs text-tint-fg"
                 >
                   {tag}
                 </span>

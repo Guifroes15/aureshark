@@ -109,3 +109,43 @@ export const datasComerciais: DataComercialItem[] = [
     acao: "Começar a lista de espera pelo direct",
   },
 ];
+
+export type Aguardando = {
+  id: number;
+  titulo: string;
+  quando: string;
+};
+
+export type Agendada = {
+  id: number;
+  titulo: string;
+  quando: string;
+  rede: string;
+};
+
+export type Publicada = {
+  id: number;
+  titulo: string;
+  metrica: string;
+};
+
+export const aguardandoInicial: Aguardando[] = [
+  { id: 1, titulo: "Chegada da coleção de verão", quando: "Terça, 22/09 · 18h30 · carrossel" },
+  { id: 2, titulo: "Tênis branco — prova social", quando: "Quarta, 23/09 · 12h · estático" },
+  { id: 3, titulo: "Última semana da promoção", quando: "Sábado, 27/09 · 10h · estático" },
+  { id: 4, titulo: "Bastidor da loja no sábado", quando: "Sábado, 27/09 · 17h · reels" },
+];
+
+export const agendadasInicial: Agendada[] = [
+  { id: 101, titulo: "Sandália de festa — combinações", quando: "Hoje, 19h", rede: "IG + FB" },
+  { id: 102, titulo: "Numeração 34 ao 40 chegou", quando: "Quinta, 24/09 · 11h", rede: "IG" },
+  { id: 103, titulo: "Depoimento da cliente Rafa", quando: "Quinta, 24/09 · 20h", rede: "IG" },
+  { id: 104, titulo: "Combo dois pares infantil", quando: "Sexta, 25/09 · 13h", rede: "IG + FB" },
+  { id: 105, titulo: "Enquete: qual cor primeiro?", quando: "Sexta, 25/09 · 18h", rede: "IG" },
+];
+
+export const publicadas: Publicada[] = [
+  { id: 201, titulo: "Look completo com mocassim", metrica: "Domingo · 2ª maior taxa de salvamento do mês" },
+  { id: 202, titulo: "Chegou tamanho 41", metrica: "Sábado · 19 respostas no direct" },
+  { id: 203, titulo: "Promoção de meia-estação", metrica: "Sexta · melhor alcance da semana" },
+];

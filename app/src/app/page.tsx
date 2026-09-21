@@ -54,7 +54,7 @@ export default function InicioPage() {
                     <span className="text-[13.5px] font-semibold text-ink">{f.titulo}</span>
                     <span className="text-xs text-ink-tertiary">{f.meta}</span>
                   </span>
-                  <span className="rounded-[5px] bg-[#E7F2FC] px-2 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.08em] text-primary">
+                  <span className="rounded-[5px] bg-tint px-2 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.08em] text-primary">
                     {f.tipo}
                   </span>
                   <Link
@@ -100,8 +100,8 @@ export default function InicioPage() {
               ))}
             </div>
 
-            <div className="mt-auto rounded-[11px] bg-[#E7F2FC] p-3.5">
-              <p className="m-0 mb-2 text-[12.5px] leading-[1.5] text-[#0B3C63]">
+            <div className="mt-auto rounded-[11px] bg-tint p-3.5">
+              <p className="m-0 mb-2 text-[12.5px] leading-[1.5] text-tint-fg">
                 O calendário do ano inteiro já está montado. Cada data vem com a copy e a
                 ação definidas antes de qualquer arte existir.
               </p>
